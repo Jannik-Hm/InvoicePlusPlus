@@ -32,10 +32,9 @@ public:
     textInputWidget *invoice_number;
     dateInputWidget *invoice_service_date;
     textInputWidget *invoice_title;
+    QHBoxLayout *product_label_create_horizontal;
     QLabel *products_label;
     QListWidget *productList;
-    QHBoxLayout *add_product_button_center_layout;
-    QSpacerItem *add_product_button_space_left;
     QPushButton *add_product_button;
     QSpacerItem *add_product_button_space_right;
     QHBoxLayout *generate_invoice_button_center_layout;

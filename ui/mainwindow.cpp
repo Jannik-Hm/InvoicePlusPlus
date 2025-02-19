@@ -51,27 +51,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     verticalLayout->addWidget(invoice_title);
 
+    product_label_create_horizontal = new QHBoxLayout();
     products_label = new QLabel(centralwidget);
+    product_label_create_horizontal->addWidget(products_label);
 
-    verticalLayout->addWidget(products_label);
+    add_product_button = new QPushButton(centralwidget);
+    product_label_create_horizontal->addWidget(add_product_button);
+
+    add_product_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+    product_label_create_horizontal->addItem(add_product_button_space_right);
+
+    verticalLayout->addLayout(product_label_create_horizontal);
 
     productList = new QListWidget(centralwidget);
 
     verticalLayout->addWidget(productList);
-
-    add_product_button_center_layout = new QHBoxLayout();
-
-    add_product_button_space_left = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-    add_product_button_center_layout->addItem(add_product_button_space_left);
-
-    add_product_button = new QPushButton(centralwidget);
-    add_product_button_center_layout->addWidget(add_product_button);
-
-    add_product_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-    add_product_button_center_layout->addItem(add_product_button_space_right);
-
-
-    verticalLayout->addLayout(add_product_button_center_layout);
 
     generate_invoice_button_center_layout = new QHBoxLayout();
 

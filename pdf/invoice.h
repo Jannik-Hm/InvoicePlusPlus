@@ -23,10 +23,10 @@ private:
     float line_height_factor = 1.2;
     HPDF_PageSizes page_size = HPDF_PAGE_SIZE_A4;
     HPDF_PageDirection page_direction = HPDF_PAGE_PORTRAIT;
-    float padding_left = 0;
-    float padding_right = 0;
-    float padding_top = 0;
-    float padding_bottom = 0;
+    float padding_left = 55;
+    float padding_right = 55;
+    float padding_top = 55;
+    float padding_bottom = 55;
     HPDF_Doc pdf;
     HPDF_Font font_normal;
     HPDF_Font font_bold;

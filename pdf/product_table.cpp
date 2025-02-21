@@ -21,6 +21,7 @@ HPDF_REAL _createProductRow(const HPDF_Page page, HPDF_Font font, Product *produ
         writeText(page, to_str(product->count), product_name_right, centered_y, line_height, product_count_width,
                   HPDF_TALIGN_RIGHT, 1);
         // std::to_string(product_price_per) has rounding error
+        //TODO: format currency values
         writeText(page, to_str(product->price_per_unit), product_count_right, centered_y, line_height,
                   product_price_per_width, HPDF_TALIGN_RIGHT, 1);
         writeText(page, to_str(product->price_per_unit * product->count), product_per_right, centered_y, line_height,
@@ -53,7 +54,35 @@ void _drawLine(HPDF_Page page, HPDF_REAL from_x, HPDF_REAL from_y, HPDF_REAL to_
     HPDF_Page_Stroke(page);
 }
 
-std::list<Product *> product_table::createProductTable(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right,
+HPDF_REAL product_table::createTotalRow(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y,
+                                        HPDF_REAL bottom_padding, std::list<Product *> products, HPDF_Font font_bold) {
+    int font_size = 10;
+    double total = 0;
+    for (auto &i: products) {
+        total += i->count * i->price_per_unit;
+    }
+    HPDF_REAL line_height = changeFont(page, font_size, font_bold);
+    HPDF_REAL product_total_label_right = padding_right - product_total_width;
+    // std::to_string(product_price_per) has rounding error
+    //TODO: format currency values
+    HPDF_REAL total_label_height = writeTextIfNotHeightExceeded(page, "Gesamtsumme", padding_left, y,
+                                                                line_height,
+                                                                product_total_label_right - padding_left, HPDF_TALIGN_RIGHT,
+                                                                y - bottom_padding);
+    HPDF_REAL total_num_height = writeTextIfNotHeightExceeded(page, to_str(total), product_total_label_right, y,
+                                                              line_height,
+                                                              product_total_width, HPDF_TALIGN_RIGHT,
+                                                              y - bottom_padding);
+    if (total_label_height > 0 and total_num_height > 0) {
+        HPDF_Page_SetLineWidth(page, 2.0);
+        _drawLine(page, padding_left, y + 5, padding_right, y + 5);
+    }
+    return std::max(total_label_height, total_num_height);
+}
+
+/// @brief Draws the Product Table on to a given pdf page
+/// @return The rest of the products, that did not fit onto the page
+product_table_return product_table::createProductTable(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right,
                                                        HPDF_REAL y, HPDF_REAL bottom_padding,
                                                        std::list<Product *> products, HPDF_Font font_normal,
                                                        HPDF_Font font_bold) {
@@ -64,20 +93,20 @@ std::list<Product *> product_table::createProductTable(HPDF_Page page, HPDF_REAL
     _drawLine(page, padding_left, currentHeight - 5, padding_right, currentHeight - 5);
     currentHeight -= 10;
     HPDF_Page_SetLineWidth(page, 1.0);
-    std::list<Product*> remainingElements;
-    for (std::list<Product*>::iterator i=products.begin(); i!=products.end();++i) {
-        HPDF_REAL row_height = _createProductRow(page, font_normal, *i, currentHeight, padding_left, padding_right, bottom_padding);
+    for (std::list<Product *>::iterator i = products.begin(); i != products.end(); ++i) {
+        HPDF_REAL row_height = _createProductRow(page, font_normal, *i, currentHeight, padding_left, padding_right,
+                                                 bottom_padding);
         if (&*i != &products.front() and row_height > 0) {
-
             _drawLine(page, padding_left, currentHeight + 5, padding_right, currentHeight + 5);
             std::cout << currentHeight + row_height - 5 << " " << currentHeight << " " << row_height << std::endl;
         }
         currentHeight -= row_height;
         currentHeight -= 10;
         if (row_height == 0) {
+            // when Product does not fit anymore on the page, return it and the rest of the products
             std::list<Product *> temp(i, products.end());
-            return temp;
+            return {temp, y - currentHeight};
         }
     }
-    return {};
+    return {{}, y - currentHeight};
 }

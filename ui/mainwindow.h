@@ -47,6 +47,9 @@ public:
     QPushButton *generate_invoice_button;
     QSpacerItem *generate_invoice_button_space_right;
 
+private:
+    std::list<std::string> checkForMissingFields() const;
+
 private slots:
     void addProductWidget();
     void removeProductWidget(const productWidget *widget) const;

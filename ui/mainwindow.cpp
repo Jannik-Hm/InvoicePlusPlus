@@ -79,7 +79,8 @@ MainWindow::MainWindow(QWidget *parent)
     add_product_button = new QPushButton(centralwidget);
     product_label_create_horizontal->addWidget(add_product_button);
 
-    add_product_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+    add_product_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding,
+                                                     QSizePolicy::Policy::Minimum);
     product_label_create_horizontal->addItem(add_product_button_space_right);
 
     verticalLayout->addLayout(product_label_create_horizontal);
@@ -90,20 +91,22 @@ MainWindow::MainWindow(QWidget *parent)
 
     generate_invoice_button_center_layout = new QHBoxLayout();
 
-    generate_invoice_button_space_left = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+    generate_invoice_button_space_left = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding,
+                                                         QSizePolicy::Policy::Minimum);
     generate_invoice_button_center_layout->addItem(generate_invoice_button_space_left);
 
     generate_invoice_button = new QPushButton(centralwidget);
     generate_invoice_button_center_layout->addWidget(generate_invoice_button);
 
-    generate_invoice_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+    generate_invoice_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding,
+                                                          QSizePolicy::Policy::Minimum);
     generate_invoice_button_center_layout->addItem(generate_invoice_button_space_right);
 
 
     verticalLayout->addLayout(generate_invoice_button_center_layout);
 
     this->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-    sender_label->setText(QCoreApplication::translate("MainWindow", "Sender", nullptr));
+    sender_label->setText(QCoreApplication::translate("MainWindow", "Verfasser", nullptr));
     recipient_label->setText(QCoreApplication::translate("MainWindow", "Empfänger", nullptr));
     invoice_service_date->input->setDisplayFormat(QCoreApplication::translate("MainWindow", "dd.MM.yyyy", nullptr));
     products_label->setText(QCoreApplication::translate("MainWindow", "Produkte", nullptr));
@@ -117,9 +120,89 @@ MainWindow::MainWindow(QWidget *parent)
     //TODO: some kind of user feedback, that generation succeeded -> QMessageBox
 }
 
+std::list<std::string> MainWindow::checkForMissingFields() const {
+    std::list<std::string> missing_fields = {};
+    if (this->sender->name->input->text() == "") {
+        missing_fields.push_back("Verfasser Name wird benötigt");
+    }
+    if (this->sender->street->input->text() == "") {
+        missing_fields.push_back("Verfasser Straße wird benötigt");
+    }
+    if (this->sender->housenumber->input->text() == "") {
+        missing_fields.push_back("Verfasser Hausnummer wird benötigt");
+    }
+    if (this->sender->zipcode->input->text() == "") {
+        missing_fields.push_back("Verfasser Postleitzahl wird benötigt");
+    }
+    if (this->sender->city->input->text() == "") {
+        missing_fields.push_back("Verfasser Stadt wird benötigt");
+    }
+    if (this->recipient->name->input->text() == "") {
+        missing_fields.push_back("Empfänger Name wird benötigt");
+    }
+    if (this->recipient->street->input->text() == "") {
+        missing_fields.push_back("Empfänger Straße wird benötigt");
+    }
+    if (this->recipient->housenumber->input->text() == "") {
+        missing_fields.push_back("Empfänger Hausnummer wird benötigt");
+    }
+    if (this->recipient->zipcode->input->text() == "") {
+        missing_fields.push_back("Empfänger Postleitzahl wird benötigt");
+    }
+    if (this->recipient->city->input->text() == "") {
+        missing_fields.push_back("Empfänger Stadt wird benötigt");
+    }
+    if (this->invoice_number->input->text() == "") {
+        missing_fields.push_back("Rechnungsnummer wird benötigt");
+    }
+    if (this->invoice_title->input->text() == "") {
+        missing_fields.push_back("Rechnungstitel wird benötigt");
+    }
+    if (this->iban->input->text() == "") {
+        missing_fields.push_back("IBAN wird benötigt");
+    }
+    if (this->bic->input->text() == "") {
+        missing_fields.push_back("BIC wird benötigt");
+    }
+    if (this->tax_number->input->text() == "") {
+        missing_fields.push_back("Steuernummer wird benötigt");
+    }
+    if (this->productList->count() == 0) {
+        missing_fields.push_back("Mindestens 1 Produkt wird benötigt");
+    } else {
+        // iterate through product list to check if name or ppe are missing
+        bool is_missing_name = false;
+        bool is_missing_ppe = false;
+        for (int row = 0; row < this->productList->count(); row++) {
+            QListWidgetItem *item = this->productList->item(row);
+            QWidget *child = productList->itemWidget(item);
+            if (productWidget *product_widget = dynamic_cast<productWidget *>(child)) {
+                if (product_widget->name->input->text() == "") {
+                    is_missing_name = true;
+                }
+                // count already has default value
+                if (product_widget->ppe->input->text() == "") {
+                    is_missing_ppe = true;
+                }
+                if (is_missing_name && is_missing_ppe) {
+                    break;
+                }
+            }
+        }
+        if (is_missing_name) {
+            missing_fields.push_back("Mindestens 1 Produkt fehlt der Name");
+        }
+        if (is_missing_ppe) {
+            missing_fields.push_back("Mindestens 1 Produkt fehlt der PPE");
+        }
+    }
+    return missing_fields;
+}
+
+
 void MainWindow::addProductWidget() {
-    productWidget *customWidget = new productWidget(this);
     QListWidgetItem *item = new QListWidgetItem(productList);
+    productWidget *customWidget = new productWidget(this);
     item->setSizeHint(customWidget->sizeHint());
     productList->setItemWidget(item, customWidget);
 
@@ -137,35 +220,58 @@ void MainWindow::removeProductWidget(const productWidget *widget) const {
 }
 
 void MainWindow::generateInvoice() {
+    if (std::list<std::string> missing_fields = checkForMissingFields(); missing_fields.size() > 0) {
+        // merge list of error messages into \n seperated string
+        const std::string text = std::accumulate(missing_fields.begin(), missing_fields.end(), std::string(),
+                                                 [](const std::string &a, const std::string &b) {
+                                                     return a.empty() ? b : a + "\n" + b;
+                                                 });
+        // display error message to the user
+        QMessageBox::information(this, "Fehler", QString::fromStdString(text));
+    } else {
+        std::list<ProductData *> products = {};
 
-    std::list<ProductData*> products = {};
-
-    for (int row = 0; row < this->productList->count(); row++)
-    {
-        QListWidgetItem *item = this->productList->item(row);
-        QWidget* child = productList->itemWidget(item);
-        // products.push_back(new ProductData(item->));
-        if (productWidget* product_widget = dynamic_cast<productWidget*>(child)) {
-            products.push_back(new ProductData(product_widget->name->input->text().toStdString(), product_widget->count->input->value(), product_widget->ppe->input->text().toDouble()));
+        // iterate through product list widget, create a ProductData Object for each entry and append to products list
+        for (int row = 0; row < this->productList->count(); row++) {
+            QListWidgetItem *item = this->productList->item(row);
+            QWidget *child = productList->itemWidget(item);
+            if (productWidget *product_widget = dynamic_cast<productWidget *>(child)) {
+                products.push_back(new ProductData(product_widget->name->input->text().toStdString(),
+                                                   product_widget->count->input->value(),
+                                                   product_widget->ppe->input->text().toDouble()));
+            }
         }
-    }
 
-    InvoiceData* invoice_data = new InvoiceData();
-    invoice_data->sender = new RepresentativeData(this->sender->name->input->text().toStdString(), this->sender->street->input->text().toStdString(), this->sender->housenumber->input->text().toStdString(), this->sender->zipcode->input->text().toStdString(), this->sender->city->input->text().toStdString());
-    invoice_data->recipient = new RepresentativeData(this->recipient->name->input->text().toStdString(), this->recipient->street->input->text().toStdString(), this->recipient->housenumber->input->text().toStdString(), this->recipient->zipcode->input->text().toStdString(), this->recipient->city->input->text().toStdString());
-    invoice_data->invoice_number = this->invoice_number->input->text().toStdString();
-    invoice_data->invoice_service_date = this->invoice_service_date->input->date();
-    invoice_data->invoice_title = this->invoice_title->input->text().toStdString();
-    invoice_data->iban = this->iban->input->text().toStdString();
-    invoice_data->bic = this->bic->input->text().toStdString();
-    invoice_data->tax_number = this->tax_number->input->text().toStdString();
-    invoice_data->products = products;
-    Invoice* invoice = new Invoice(invoice_data);
-    try {
-        std::string filepath = invoice->generate();
-        QMessageBox::information(this, "Erfolg", QString::fromStdString("Rechnung unter " + filepath + " gespeichert"));
-    } catch (PDFException &e) {
-        HPDF_Free(invoice->pdf);
-        QMessageBox::information(this, "Fehler", QString::fromStdString(e.message()));
+        // generate InvoiceData object from form widgets
+        InvoiceData *invoice_data = new InvoiceData();
+        invoice_data->sender = new RepresentativeData(this->sender->name->input->text().toStdString(),
+                                                      this->sender->street->input->text().toStdString(),
+                                                      this->sender->housenumber->input->text().toStdString(),
+                                                      this->sender->zipcode->input->text().toStdString(),
+                                                      this->sender->city->input->text().toStdString());
+        invoice_data->recipient = new RepresentativeData(this->recipient->name->input->text().toStdString(),
+                                                         this->recipient->street->input->text().toStdString(),
+                                                         this->recipient->housenumber->input->text().toStdString(),
+                                                         this->recipient->zipcode->input->text().toStdString(),
+                                                         this->recipient->city->input->text().toStdString());
+        invoice_data->invoice_number = this->invoice_number->input->text().toStdString();
+        invoice_data->invoice_service_date = this->invoice_service_date->input->date();
+        invoice_data->invoice_title = this->invoice_title->input->text().toStdString();
+        invoice_data->iban = this->iban->input->text().toStdString();
+        invoice_data->bic = this->bic->input->text().toStdString();
+        invoice_data->tax_number = this->tax_number->input->text().toStdString();
+        invoice_data->products = products;
+        Invoice *invoice = new Invoice(invoice_data);
+        // try to generate the pdf invoice and display success message with file location, display error code when pdf lib encounters error
+        try {
+            std::string filepath = invoice->generate();
+            QMessageBox::information(this, "Erfolg",
+                                     QString::fromStdString("Rechnung unter " + filepath + " gespeichert"));
+        } catch (PDFException &e) {
+            HPDF_Free(invoice->pdf);
+            QMessageBox::information(this, "Fehler", QString::fromStdString(e.message()));
+        }
+
+        // TODO: switch over to shared_ptr instead of new
     }
 }

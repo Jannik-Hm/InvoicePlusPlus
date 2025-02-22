@@ -34,6 +34,7 @@ qt_add_executable(Invoice2Go
         pdf/product_table.cpp
         pdf/product_table.h
         data_objects/representative_data.h
+        pdf/pdf_exception.h
 )
 
 target_link_libraries(Invoice2Go

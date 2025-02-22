@@ -1,12 +1,53 @@
-//
-// Created by Jannik Heym on 20.02.25.
-//
-
 #include "invoice.h"
-
-#include <QtCore/qtextstream.h>
+#include <QtCore/qcoreapplication.h>
 
 #include "product_table.h"
+#include "../ui/customWidgets/inputWidget/dateInputWidget.h"
+
+HPDF_Page Invoice::_generateNewPage() {
+    const HPDF_Page new_page = HPDF_AddPage(this->pdf);
+    HPDF_Page_SetSize(new_page, this->page_size, this->page_direction);
+    pages.push_back(new_page);
+    current_height = padding_top;
+    this->_generateFooter(new_page);
+    return new_page;
+}
+
+void Invoice::_generateFooter(const HPDF_Page page) const {
+    const HPDF_REAL line_height = changeFont(page, 8.0, font_normal);
+    const HPDF_REAL column_width = (padding_right - padding_left) / 3.0;
+    HPDF_Page_SetLineWidth(page, 2.0);
+    drawLine(page, padding_left, padding_bottom - 15, padding_right, padding_bottom - 15);
+    const HPDF_REAL line_1_y = padding_bottom - 20;
+    const HPDF_REAL line2_y = line_1_y - (1 + writeText(page, this->invoice_data->sender->name, padding_left, line_1_y,
+                                                        line_height, column_width, HPDF_TALIGN_LEFT));
+    const HPDF_REAL line3_y = line2_y - (1 + writeText(
+                                             page,
+                                             this->invoice_data->sender->street + " " + this->invoice_data->sender->
+                                             housenumber, padding_left, line2_y, line_height, column_width,
+                                             HPDF_TALIGN_LEFT));
+    writeText(page, this->invoice_data->sender->zipcode + " " + this->invoice_data->sender->city, padding_left, line3_y,
+              line_height, column_width, HPDF_TALIGN_LEFT);
+
+    // center middle column
+    std::string iban = "IBAN: " + this->invoice_data->iban;
+    std::string bic = "BIC: " + this->invoice_data->bic;
+    HPDF_REAL banking_width = std::max(HPDF_Page_TextWidth(page, iban.c_str()), HPDF_Page_TextWidth(page, bic.c_str()));
+    HPDF_REAL banking_x = padding_left + column_width + (column_width - banking_width) / 2.0;
+    writeText(page, iban, banking_x, line_1_y, line_height, banking_width, HPDF_TALIGN_LEFT);
+    writeText(page, bic, banking_x, line2_y, line_height, banking_width, HPDF_TALIGN_LEFT);
+
+    writeText(page, "Steuernummer: " + this->invoice_data->tax_number, padding_left + 2 * column_width, line_1_y,
+              line_height, column_width, HPDF_TALIGN_RIGHT);
+}
+
+void Invoice::_generatePageNumbers() const {
+    int page_index = 1;
+    for (const auto page : pages) {
+        const HPDF_REAL line_height = changeFont(page, 8.0, font_normal);
+        writeText(page, "Seite " + to_str(page_index++) + " von " + to_str(pages.size()), padding_left, padding_bottom - 3, line_height, padding_right-padding_left, HPDF_TALIGN_CENTER);
+    }
+}
 
 int Invoice::generate() {
     // HPDF_Doc pdf = HPDF_New(error_handler, nullptr);
@@ -15,95 +56,124 @@ int Invoice::generate() {
     //     return 1;
     // }
 
-    HPDF_Page first_page = HPDF_AddPage(this->pdf);
-    std::list<HPDF_Page> pages = {first_page};
-    HPDF_Page_SetSize(first_page, HPDF_PAGE_SIZE_A4, HPDF_PAGE_PORTRAIT);
+    // Special Handling for first page to rewrite paddings to correct values + possible special design
+    const HPDF_Page first_page = HPDF_AddPage(this->pdf);
+    pages.push_back(first_page);
+    HPDF_Page_SetSize(first_page, this->page_size, this->page_direction);
     // Non UTF-8 -> Ansi only
     // HPDF_Font font = HPDF_GetFont(pdf, "Helvetica", "WinAnsiEncoding");
     // HPDF_Font font_bold = HPDF_GetFont(pdf, "Helvetica-Bold", "WinAnsiEncoding");
 
-    this->padding_right = HPDF_Page_GetWidth(first_page) - this->padding_right;
-    float innerWidth = this->padding_right - this->padding_left;
     this->padding_top = HPDF_Page_GetHeight(first_page) - this->padding_top;
+    this->padding_right = HPDF_Page_GetWidth(first_page) - this->padding_right;
+    const float innerWidth = this->padding_right - this->padding_left;
 
-    float y_contact = HPDF_Page_GetHeight(first_page) - 120;
+    this->_generateFooter(first_page);
 
-    HPDF_INT sender_font_size = 8;
-    HPDF_INT invoiceMeta_font_size = 10;
-    HPDF_INT recipient_font_size = 11;
-    HPDF_INT title_font_size = 12;
+    const float y_contact = HPDF_Page_GetHeight(first_page) - 120;
 
-    HPDF_REAL currentHeight = y_contact;
+    const HPDF_INT sender_font_size = 8;
+    const HPDF_INT invoiceMeta_font_size = 10;
+    const HPDF_INT recipient_font_size = 11;
+    const HPDF_INT title_font_size = 12;
+
+    const std::string invoice_date = QDate::currentDate().toString("dd.MM.yyyy").toStdString();
+
+    current_height = y_contact;
 
     HPDF_REAL line_height = changeFont(first_page, sender_font_size, this->font_normal);
 
-    currentHeight -= writeText(first_page, "Name", padding_left, currentHeight, line_height, innerWidth/2 - padding_left, HPDF_TALIGN_LEFT, 2);
-    currentHeight -= writeText(first_page, "Straße Hausnummer – PLZ Stadt", padding_left, currentHeight, line_height, innerWidth/2 - padding_left, HPDF_TALIGN_LEFT, 1);
-    currentHeight -= 1;
+    current_height -= writeText(first_page, this->invoice_data->sender->name, padding_left, current_height, line_height,
+                                innerWidth / 2 - padding_left, HPDF_TALIGN_LEFT, 2);
+    current_height -= writeText(
+        first_page,
+        this->invoice_data->sender->street + " " + this->invoice_data->sender->housenumber + " - " + this->invoice_data
+        ->sender->zipcode + " " + this->invoice_data->sender->city, padding_left, current_height, line_height,
+        innerWidth / 2 - padding_left, HPDF_TALIGN_LEFT, 1);
+    current_height -= 1;
 
-    float invoiceMeta_data_y = currentHeight - 1; //correction as address font size is 11 and invoiceMeta 10
+    float invoiceMeta_data_y = current_height - 1; //correction as address font size is 11 and invoiceMeta 10
 
     HPDF_REAL invoiceMeta_data_x = innerWidth / 2 + 200 + 10;
     float font_size = invoiceMeta_font_size;
     line_height = changeFont(first_page, font_size, font_bold);
-    writeText(first_page, "Rechnung Nr.:", innerWidth/2, invoiceMeta_data_y, line_height, 200, HPDF_TALIGN_RIGHT, 1);
+    writeText(first_page, "Rechnung Nr.:", innerWidth / 2, invoiceMeta_data_y, line_height, 200, HPDF_TALIGN_RIGHT, 1);
 
     HPDF_Page_SetFontAndSize(first_page, this->font_normal, font_size);
-    invoiceMeta_data_y -= writeText(first_page, "2025-02-18-MM", invoiceMeta_data_x, invoiceMeta_data_y, line_height, padding_right - invoiceMeta_data_x, HPDF_TALIGN_LEFT, 1);
+    invoiceMeta_data_y -= writeText(first_page, this->invoice_data->invoice_number, invoiceMeta_data_x,
+                                    invoiceMeta_data_y, line_height, padding_right - invoiceMeta_data_x,
+                                    HPDF_TALIGN_LEFT, 1);
     invoiceMeta_data_y -= recipient_font_size - invoiceMeta_font_size;
 
     HPDF_Page_SetFontAndSize(first_page, this->font_bold, font_size);
-    writeText(first_page, "Rechnungsdatum:", innerWidth/2, invoiceMeta_data_y, line_height, 200, HPDF_TALIGN_RIGHT, 1);
+    writeText(first_page, "Rechnungsdatum:", innerWidth / 2, invoiceMeta_data_y, line_height, 200, HPDF_TALIGN_RIGHT,
+              1);
 
     HPDF_Page_SetFontAndSize(first_page, this->font_normal, font_size);
-    invoiceMeta_data_y -= writeText(first_page, "19.02.2025", invoiceMeta_data_x, invoiceMeta_data_y, line_height, padding_right - invoiceMeta_data_x, HPDF_TALIGN_LEFT, 1);
+    invoiceMeta_data_y -= writeText(first_page, invoice_date, invoiceMeta_data_x, invoiceMeta_data_y, line_height,
+                                    padding_right - invoiceMeta_data_x, HPDF_TALIGN_LEFT, 1);
     invoiceMeta_data_y -= recipient_font_size - invoiceMeta_font_size;
 
     HPDF_Page_SetFontAndSize(first_page, this->font_bold, font_size);
-    writeText(first_page, "Leistungsdatum:", innerWidth/2, invoiceMeta_data_y, line_height, 200, HPDF_TALIGN_RIGHT, 1);
+    writeText(first_page, "Leistungsdatum:", innerWidth / 2, invoiceMeta_data_y, line_height, 200, HPDF_TALIGN_RIGHT,
+              1);
 
     HPDF_Page_SetFontAndSize(first_page, this->font_normal, font_size);
-    invoiceMeta_data_y -= writeText(first_page, "18.02.2025", invoiceMeta_data_x, invoiceMeta_data_y, line_height, padding_right - invoiceMeta_data_x, HPDF_TALIGN_LEFT, 1);
+    invoiceMeta_data_y -= writeText(
+        first_page, this->invoice_data->invoice_service_date->toString("dd.MM.yyyy").toStdString(), invoiceMeta_data_x,
+        invoiceMeta_data_y, line_height, padding_right - invoiceMeta_data_x, HPDF_TALIGN_LEFT, 1);
 
 
     line_height = changeFont(first_page, recipient_font_size, this->font_normal);
 
-    currentHeight -= writeText(first_page, "Max Mustermann", this->padding_left, currentHeight, line_height, innerWidth/2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
-    currentHeight -= writeText(first_page, "Potsdamer Platz 10", this->padding_left, currentHeight, line_height, innerWidth/2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
-    currentHeight -= writeText(first_page, "10785 Berlin", this->padding_left, currentHeight, line_height, innerWidth/2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
+    current_height -= writeText(first_page, this->invoice_data->recipient->name, this->padding_left, current_height,
+                                line_height, innerWidth / 2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
+    current_height -= writeText(
+        first_page, this->invoice_data->recipient->street + " " + this->invoice_data->recipient->housenumber,
+        this->padding_left, current_height, line_height, innerWidth / 2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
+    current_height -= writeText(
+        first_page, this->invoice_data->recipient->zipcode + " " + this->invoice_data->recipient->city,
+        this->padding_left, current_height, line_height, innerWidth / 2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
 
-    std::string invoice_date = "19.02.2025";
     HPDF_REAL text_width = HPDF_Page_TextWidth(first_page, invoice_date.c_str());
     // get lowest point of left and right text
-    currentHeight = std::min(invoiceMeta_data_y, currentHeight) - 30;
-    writeText(first_page, "19.02.2025", padding_right - text_width, currentHeight, line_height, text_width, HPDF_TALIGN_RIGHT, 1);
+    current_height = std::min(invoiceMeta_data_y, current_height) - 30;
+    writeText(first_page, invoice_date, padding_right - text_width, current_height, line_height, text_width,
+              HPDF_TALIGN_RIGHT, 1);
 
     line_height = changeFont(first_page, title_font_size, this->font_bold);
-    std::string title = "Projekt XY";
+    std::string title = this->invoice_data->invoice_title;
     std::transform(title.begin(), title.end(), title.begin(), ::toupper);
-    currentHeight -= writeText(first_page, title, this->padding_left, currentHeight, line_height, innerWidth/2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
+    current_height -= writeText(first_page, title, this->padding_left, current_height, line_height,
+                                innerWidth / 2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
 
-    currentHeight -= 20;
+    current_height -= 20;
 
-    //generates the first product table and returns the items that did not fit onto the page --> TODO: loop until no items are over with generating a new page with header and footer each loop
-    product_table_return table = product_table::createProductTable(first_page, padding_left, padding_right, currentHeight, this->padding_bottom, this->invoice_data->products, this->font_normal, this->font_bold);
+    product_table_return table = product_table::createProductTable(first_page, padding_left, padding_right,
+                                                                   current_height, this->padding_bottom,
+                                                                   this->invoice_data->products, this->font_normal,
+                                                                   this->font_bold);
     while (table.rest.size() > 0) {
-        HPDF_Page new_page = HPDF_AddPage(this->pdf);
-        pages.push_back(new_page);
-        currentHeight = padding_top;
-        table = product_table::createProductTable(new_page, padding_left, padding_right, currentHeight, this->padding_bottom, table.rest, this->font_normal, this->font_bold);
+        table = product_table::createProductTable(this->_generateNewPage(), padding_left, padding_right, current_height,
+                                                  this->padding_bottom, table.rest, this->font_normal, this->font_bold);
         std::cout << table.rest.size() << std::endl;
     }
-    currentHeight -= table.height;
-    if (product_table::createTotalRow(pages.back(), padding_left, padding_right, currentHeight, this->padding_bottom, this->invoice_data->products, this->font_bold) == 0) {
-        HPDF_Page new_page = HPDF_AddPage(this->pdf);
-        pages.push_back(new_page);
-        currentHeight = padding_top;
-        product_table::createTotalRow(pages.back(), padding_left, padding_right, currentHeight, this->padding_bottom, this->invoice_data->products, this->font_bold);
+    current_height -= table.height;
+
+    // create Total Row -> if not enough space left, generate on a new page
+    if (product_table::createTotalRow(pages.back(), padding_left, padding_right, current_height, this->padding_bottom,
+                                      this->invoice_data->products, this->font_bold) == 0) {
+        product_table::createTotalRow(this->_generateNewPage(), padding_left, padding_right, current_height,
+                                      this->padding_bottom, this->invoice_data->products, this->font_bold);
     }
 
+    this->_generatePageNumbers();
+
     // Save the document to a file
-    HPDF_SaveToFile(pdf, "table_example.pdf");
+    // TODO: save to Downloads under invoice number name
+    std::string const userdir = getenv("HOME");
+    std::cout << userdir + "/Downloads/"+ this->invoice_data->invoice_title +".pdf" << std::endl;
+    HPDF_SaveToFile(pdf, (userdir + "/Downloads/"+ this->invoice_data->invoice_title +".pdf").c_str());
 
     // Clean up
     HPDF_Free(pdf);

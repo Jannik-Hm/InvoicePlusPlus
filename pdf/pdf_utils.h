@@ -124,4 +124,10 @@ inline HPDF_REAL changeFont(const HPDF_Page page, HPDF_REAL font_size, HPDF_Font
     return line_height;
 }
 
+inline void drawLine(HPDF_Page page, HPDF_REAL from_x, HPDF_REAL from_y, HPDF_REAL to_x, HPDF_REAL to_y) {
+    HPDF_Page_MoveTo(page, from_x, from_y);
+    HPDF_Page_LineTo(page, to_x, to_y);
+    HPDF_Page_Stroke(page);
+}
+
 #endif //PDF_UTILS_H

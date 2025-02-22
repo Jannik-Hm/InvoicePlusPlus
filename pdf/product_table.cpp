@@ -5,7 +5,7 @@ HPDF_REAL product_count_width = 40;
 HPDF_REAL product_price_per_width = 70;
 HPDF_REAL product_total_width = 70;
 
-HPDF_REAL _createProductRow(const HPDF_Page page, HPDF_Font font, Product *product, HPDF_REAL y, HPDF_REAL left,
+HPDF_REAL _createProductRow(const HPDF_Page page, HPDF_Font font, ProductData *product, HPDF_REAL y, HPDF_REAL left,
                             HPDF_REAL right, HPDF_REAL max_y) {
     int font_size = 10;
     HPDF_REAL line_height = changeFont(page, font_size, font);
@@ -48,14 +48,8 @@ HPDF_REAL _createProductHeader(const HPDF_Page page, HPDF_Font font, HPDF_REAL y
                     std::max(product_per_height, product_total_height));
 }
 
-void _drawLine(HPDF_Page page, HPDF_REAL from_x, HPDF_REAL from_y, HPDF_REAL to_x, HPDF_REAL to_y) {
-    HPDF_Page_MoveTo(page, from_x, from_y);
-    HPDF_Page_LineTo(page, to_x, to_y);
-    HPDF_Page_Stroke(page);
-}
-
 HPDF_REAL product_table::createTotalRow(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y,
-                                        HPDF_REAL bottom_padding, std::list<Product *> products, HPDF_Font font_bold) {
+                                        HPDF_REAL bottom_padding, std::list<ProductData *> products, HPDF_Font font_bold) {
     int font_size = 10;
     double total = 0;
     for (auto &i: products) {
@@ -75,7 +69,7 @@ HPDF_REAL product_table::createTotalRow(HPDF_Page page, HPDF_REAL padding_left, 
                                                               y - bottom_padding);
     if (total_label_height > 0 and total_num_height > 0) {
         HPDF_Page_SetLineWidth(page, 2.0);
-        _drawLine(page, padding_left, y + 5, padding_right, y + 5);
+        drawLine(page, padding_left, y + 5, padding_right, y + 5);
     }
     return std::max(total_label_height, total_num_height);
 }
@@ -84,27 +78,27 @@ HPDF_REAL product_table::createTotalRow(HPDF_Page page, HPDF_REAL padding_left, 
 /// @return The rest of the products, that did not fit onto the page
 product_table_return product_table::createProductTable(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right,
                                                        HPDF_REAL y, HPDF_REAL bottom_padding,
-                                                       std::list<Product *> products, HPDF_Font font_normal,
+                                                       std::list<ProductData *> products, HPDF_Font font_normal,
                                                        HPDF_Font font_bold) {
     HPDF_REAL currentHeight = y;
     HPDF_Page_SetLineWidth(page, 2.0);
     currentHeight -= _createProductHeader(page, font_bold, currentHeight, padding_left, padding_right);
     //TODO: figure out how to center this
-    _drawLine(page, padding_left, currentHeight - 5, padding_right, currentHeight - 5);
+    drawLine(page, padding_left, currentHeight - 5, padding_right, currentHeight - 5);
     currentHeight -= 10;
     HPDF_Page_SetLineWidth(page, 1.0);
-    for (std::list<Product *>::iterator i = products.begin(); i != products.end(); ++i) {
+    for (std::list<ProductData *>::iterator i = products.begin(); i != products.end(); ++i) {
         HPDF_REAL row_height = _createProductRow(page, font_normal, *i, currentHeight, padding_left, padding_right,
                                                  bottom_padding);
         if (&*i != &products.front() and row_height > 0) {
-            _drawLine(page, padding_left, currentHeight + 5, padding_right, currentHeight + 5);
+            drawLine(page, padding_left, currentHeight + 5, padding_right, currentHeight + 5);
             std::cout << currentHeight + row_height - 5 << " " << currentHeight << " " << row_height << std::endl;
         }
         currentHeight -= row_height;
         currentHeight -= 10;
         if (row_height == 0) {
             // when Product does not fit anymore on the page, return it and the rest of the products
-            std::list<Product *> temp(i, products.end());
+            std::list<ProductData *> temp(i, products.end());
             return {temp, y - currentHeight};
         }
     }

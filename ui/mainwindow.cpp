@@ -6,7 +6,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) {
     if (this->objectName().isEmpty())
-        this->resize(800, 600);
+        this->resize(800, 800);
     centralwidget = new QWidget(this);
     verticalLayout = new QVBoxLayout(centralwidget);
     representatives_layout = new QHBoxLayout();
@@ -50,6 +50,20 @@ MainWindow::MainWindow(QWidget *parent)
     invoice_title->input->setPlaceholderText("Projekt XY");
 
     verticalLayout->addWidget(invoice_title);
+
+    footer_label = new QLabel("Fußzeile", centralwidget);
+    verticalLayout->addWidget(footer_label);
+
+    //TODO: needs styling (width) + regex validator
+    banking_horizontal = new QHBoxLayout();
+    iban = new textInputWidget("IBAN", centralwidget);
+    banking_horizontal->addWidget(iban);
+    bic = new textInputWidget("BIC", centralwidget);
+    banking_horizontal->addWidget(bic);
+    verticalLayout->addLayout(banking_horizontal);
+
+    tax_number = new textInputWidget("Steuernummer", centralwidget);
+    verticalLayout->addWidget(tax_number);
 
     product_label_create_horizontal = new QHBoxLayout();
     products_label = new QLabel(centralwidget);

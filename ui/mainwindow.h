@@ -32,6 +32,11 @@ public:
     textInputWidget *invoice_number;
     dateInputWidget *invoice_service_date;
     textInputWidget *invoice_title;
+    QLabel *footer_label;
+    QHBoxLayout *banking_horizontal;
+    textInputWidget *iban;
+    textInputWidget *bic;
+    textInputWidget *tax_number;
     QHBoxLayout *product_label_create_horizontal;
     QLabel *products_label;
     QListWidget *productList;

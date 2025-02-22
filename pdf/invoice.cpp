@@ -120,7 +120,7 @@ int Invoice::generate() {
 
     HPDF_Page_SetFontAndSize(first_page, this->font_normal, font_size);
     invoiceMeta_data_y -= writeText(
-        first_page, this->invoice_data->invoice_service_date->toString("dd.MM.yyyy").toStdString(), invoiceMeta_data_x,
+        first_page, this->invoice_data->invoice_service_date.toString("dd.MM.yyyy").toStdString(), invoiceMeta_data_x,
         invoiceMeta_data_y, line_height, padding_right - invoiceMeta_data_x, HPDF_TALIGN_LEFT, 1);
 
 

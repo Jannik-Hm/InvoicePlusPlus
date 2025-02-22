@@ -1,5 +1,8 @@
 #include "mainwindow.h"
-#include <chrono>
+#include "../data_objects/invoice_data.h"
+#include "../data_objects/product_data.h"
+#include "../data_objects/representative_data.h"
+#include "../pdf/invoice.h"
 
 #include "customWidgets/inputWidget/dateInputWidget.h"
 
@@ -106,6 +109,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setCentralWidget(centralwidget);
 
     connect(add_product_button, &QPushButton::clicked, this, &MainWindow::addProductWidget);
+    connect(generate_invoice_button, &QPushButton::clicked, this, &MainWindow::generateInvoice);
 }
 
 void MainWindow::addProductWidget() {
@@ -125,4 +129,32 @@ void MainWindow::removeProductWidget(const productWidget *widget) const {
             break;
         }
     }
+}
+
+void MainWindow::generateInvoice() const {
+
+    std::list<ProductData*> products = {};
+
+    for (int row = 0; row < this->productList->count(); row++)
+    {
+        QListWidgetItem *item = this->productList->item(row);
+        QWidget* child = productList->itemWidget(item);
+        // products.push_back(new ProductData(item->));
+        if (productWidget* product_widget = dynamic_cast<productWidget*>(child)) {
+            products.push_back(new ProductData(product_widget->name->input->text().toStdString(), product_widget->count->input->value(), product_widget->ppe->input->text().toDouble()));
+        }
+    }
+
+    InvoiceData* invoice_data = new InvoiceData();
+    invoice_data->sender = new RepresentativeData(this->sender->name->input->text().toStdString(), this->sender->street->input->text().toStdString(), this->sender->housenumber->input->text().toStdString(), this->sender->zipcode->input->text().toStdString(), this->sender->city->input->text().toStdString());
+    invoice_data->recipient = new RepresentativeData(this->recipient->name->input->text().toStdString(), this->recipient->street->input->text().toStdString(), this->recipient->housenumber->input->text().toStdString(), this->recipient->zipcode->input->text().toStdString(), this->recipient->city->input->text().toStdString());
+    invoice_data->invoice_number = this->invoice_number->input->text().toStdString();
+    invoice_data->invoice_service_date = this->invoice_service_date->input->date();
+    invoice_data->invoice_title = this->invoice_title->input->text().toStdString();
+    invoice_data->iban = this->iban->input->text().toStdString();
+    invoice_data->bic = this->bic->input->text().toStdString();
+    invoice_data->tax_number = this->tax_number->input->text().toStdString();
+    invoice_data->products = products;
+    Invoice* invoice = new Invoice(invoice_data);
+    invoice->generate();
 }

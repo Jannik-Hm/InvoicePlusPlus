@@ -50,6 +50,7 @@ public:
 private slots:
     void addProductWidget();
     void removeProductWidget(const productWidget *widget) const;
+    void generateInvoice() const;
 
 private:
 };

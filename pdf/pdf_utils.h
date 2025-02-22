@@ -4,6 +4,8 @@
 #include <hpdf.h>
 #include <iostream>
 #include <string>
+
+#include "pdf_exception.h"
 #include "../utils.h"
 
 inline void
@@ -11,10 +13,7 @@ inline void
                  HPDF_STATUS   detail_no,
                  void         *user_data)
 {
-    /* throw exception when an error has occured */
-    printf ("ERROR: error_no=%04X, detail_no=%d\n", (unsigned int)error_no,
-        (int)detail_no);
-    throw std::exception ();
+    throw PDFException(error_no, detail_no);
 }
 
 inline HPDF_REAL calculate_text_height(const HPDF_Page page, const char *text, HPDF_REAL max_width,

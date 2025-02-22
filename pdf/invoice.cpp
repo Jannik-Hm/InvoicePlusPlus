@@ -3,6 +3,8 @@
 
 #include "product_table.h"
 #include "../ui/customWidgets/inputWidget/dateInputWidget.h"
+#include <QStandardPaths>
+#include <QMessageBox>
 
 HPDF_Page Invoice::_generateNewPage() {
     const HPDF_Page new_page = HPDF_AddPage(this->pdf);
@@ -49,20 +51,12 @@ void Invoice::_generatePageNumbers() const {
     }
 }
 
-int Invoice::generate() {
-    // HPDF_Doc pdf = HPDF_New(error_handler, nullptr);
-    // if (!pdf) {
-    //     printf("Error: cannot create PdfDoc object\n");
-    //     return 1;
-    // }
+std::string Invoice::generate() {
 
     // Special Handling for first page to rewrite paddings to correct values + possible special design
     const HPDF_Page first_page = HPDF_AddPage(this->pdf);
     pages.push_back(first_page);
     HPDF_Page_SetSize(first_page, this->page_size, this->page_direction);
-    // Non UTF-8 -> Ansi only
-    // HPDF_Font font = HPDF_GetFont(pdf, "Helvetica", "WinAnsiEncoding");
-    // HPDF_Font font_bold = HPDF_GetFont(pdf, "Helvetica-Bold", "WinAnsiEncoding");
 
     this->padding_top = HPDF_Page_GetHeight(first_page) - this->padding_top;
     this->padding_right = HPDF_Page_GetWidth(first_page) - this->padding_right;
@@ -169,14 +163,12 @@ int Invoice::generate() {
 
     this->_generatePageNumbers();
 
-    // Save the document to a file
-    // TODO: save to Downloads under invoice number name
-    std::string const userdir = getenv("HOME");
-    std::cout << userdir + "/Downloads/"+ this->invoice_data->invoice_title +".pdf" << std::endl;
-    HPDF_SaveToFile(pdf, (userdir + "/Downloads/"+ this->invoice_data->invoice_title +".pdf").c_str());
-
-    // Clean up
+    // Save the document to users downloads folder as invoice_number.pdf
+    std::string filepath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation).toStdString() + "/"+ this->invoice_data->invoice_title +".pdf";
+    if (HPDF_OK == HPDF_SaveToFile(pdf, filepath.c_str())) {
+        HPDF_Free(pdf);
+        return filepath;
+    }
     HPDF_Free(pdf);
-
-    return 0;
+    return "";
 }

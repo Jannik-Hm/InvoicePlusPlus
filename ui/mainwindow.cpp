@@ -1,8 +1,12 @@
 #include "mainwindow.h"
+
+#include <QMessageBox>
+
 #include "../data_objects/invoice_data.h"
 #include "../data_objects/product_data.h"
 #include "../data_objects/representative_data.h"
 #include "../pdf/invoice.h"
+#include "../pdf/pdf_exception.h"
 
 #include "customWidgets/inputWidget/dateInputWidget.h"
 
@@ -110,6 +114,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(add_product_button, &QPushButton::clicked, this, &MainWindow::addProductWidget);
     connect(generate_invoice_button, &QPushButton::clicked, this, &MainWindow::generateInvoice);
+    //TODO: some kind of user feedback, that generation succeeded -> QMessageBox
 }
 
 void MainWindow::addProductWidget() {
@@ -131,7 +136,7 @@ void MainWindow::removeProductWidget(const productWidget *widget) const {
     }
 }
 
-void MainWindow::generateInvoice() const {
+void MainWindow::generateInvoice() {
 
     std::list<ProductData*> products = {};
 
@@ -156,5 +161,11 @@ void MainWindow::generateInvoice() const {
     invoice_data->tax_number = this->tax_number->input->text().toStdString();
     invoice_data->products = products;
     Invoice* invoice = new Invoice(invoice_data);
-    invoice->generate();
+    try {
+        std::string filepath = invoice->generate();
+        QMessageBox::information(this, "Erfolg", QString::fromStdString("Rechnung unter " + filepath + " gespeichert"));
+    } catch (PDFException &e) {
+        HPDF_Free(invoice->pdf);
+        QMessageBox::information(this, "Fehler", QString::fromStdString(e.message()));
+    }
 }

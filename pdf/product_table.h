@@ -20,7 +20,7 @@ public:
     /// @returns Products unable to fit onto page without exceeding dimensions
     static product_table_return createProductTable(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y, HPDF_REAL bottom_padding, std::list<ProductData*> products, HPDF_Font font, HPDF_Font font_bold);
 
-    static HPDF_REAL createTotalRow(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y, HPDF_REAL bottom_padding, std::list<ProductData*> products, HPDF_Font font_bold);
+    static HPDF_REAL createTotalRow(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y, HPDF_REAL bottom_padding, const std::list<ProductData*> &products, HPDF_Font font_bold);
 };
 
 

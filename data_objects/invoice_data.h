@@ -5,7 +5,6 @@
 #include <string>
 #include "product_data.h"
 #include "representative_data.h"
-#include <QtCore/qcoreapplication.h>
 
 class InvoiceData {
     public:

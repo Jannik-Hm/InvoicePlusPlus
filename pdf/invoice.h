@@ -18,7 +18,8 @@ public:
         this->font_bold = HPDF_GetFont(pdf, "Helvetica-Bold", "WinAnsiEncoding");
         this->current_height = padding_top;
     }
-    int generate();
+    HPDF_Doc pdf;
+    std::string generate();
 private:
     HPDF_Page _generateNewPage();
     void _generateFooter(HPDF_Page page) const;
@@ -33,10 +34,8 @@ private:
     float padding_top = 55;
     float padding_bottom = 65;
     HPDF_REAL current_height;
-    HPDF_Doc pdf;
     HPDF_Font font_normal;
     HPDF_Font font_bold;
-    HPDF_REAL createProductRow(const HPDF_Page page, HPDF_Font font, ProductData* product, HPDF_REAL y, HPDF_REAL left, HPDF_REAL right);
 };
 
 

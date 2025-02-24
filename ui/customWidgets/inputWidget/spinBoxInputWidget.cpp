@@ -4,11 +4,11 @@ spinBoxInputWidget::spinBoxInputWidget(const QString& inputLabel, QWidget *paren
 {
     layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
-    label = new QLabel(inputLabel, this);
+    label = new QLabel(inputLabel);
 
     layout->addWidget(label);
 
-    input = new QSpinBox(this);
+    input = new QSpinBox();
 
     layout->addWidget(input);
 }

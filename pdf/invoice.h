@@ -8,7 +8,7 @@
 
 class Invoice {
 public:
-    explicit Invoice(InvoiceData* invoice_data) {
+    explicit Invoice(std::shared_ptr<InvoiceData> invoice_data) {
         this->invoice_data = invoice_data;
         this->pdf = HPDF_New(error_handler, nullptr);
         if (!pdf) {
@@ -24,7 +24,7 @@ private:
     HPDF_Page _generateNewPage();
     void _generateFooter(HPDF_Page page) const;
     void _generatePageNumbers() const;
-    InvoiceData *invoice_data{};
+    std::shared_ptr<InvoiceData> invoice_data{};
     std::list<HPDF_Page> pages{};
     float line_height_factor = 1.2;
     HPDF_PageSizes page_size = HPDF_PAGE_SIZE_A4;

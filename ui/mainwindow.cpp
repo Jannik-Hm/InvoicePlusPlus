@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     representatives_layout = new QHBoxLayout();
 
     sender_layout = new QVBoxLayout();
-    sender_label = new QLabel(centralwidget);
+    sender_label = new QLabel();
     sender_layout->addWidget(sender_label);
     sender = new representativeWidget();
     sender_layout->addWidget(sender);
@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     representatives_layout->addItem(recipients_spacer);
 
     recipient_layout = new QVBoxLayout();
-    recipient_label = new QLabel(centralwidget);
+    recipient_label = new QLabel();
     recipient_layout->addWidget(recipient_label);
     recipient = new representativeWidget();
     recipient_layout->addWidget(recipient);
@@ -40,10 +40,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     number_date_horizontal = new QHBoxLayout();
 
-    invoice_number = new textInputWidget("Rechnungsnummer", centralwidget);
+    invoice_number = new textInputWidget("Rechnungsnummer");
     number_date_horizontal->addWidget(invoice_number);
 
-    invoice_service_date = new dateInputWidget("Leistungsdatum", centralwidget);
+    invoice_service_date = new dateInputWidget("Leistungsdatum");
     invoice_service_date->input->setMinimumDate(QDate(1900, 1, 1));
     invoice_service_date->input->setDate(QDate::currentDate());
     invoice_service_date->input->setMaximumDate(QDate::currentDate());
@@ -53,30 +53,30 @@ MainWindow::MainWindow(QWidget *parent)
 
     verticalLayout->addLayout(number_date_horizontal);
 
-    invoice_title = new textInputWidget("Rechnungstitel", centralwidget);
+    invoice_title = new textInputWidget("Rechnungstitel");
     invoice_title->input->setPlaceholderText("Projekt XY");
 
     verticalLayout->addWidget(invoice_title);
 
-    footer_label = new QLabel("Fußzeile", centralwidget);
+    footer_label = new QLabel("Fußzeile");
     verticalLayout->addWidget(footer_label);
 
     //TODO: needs styling (width) + regex validator
     banking_horizontal = new QHBoxLayout();
-    iban = new textInputWidget("IBAN", centralwidget);
+    iban = new textInputWidget("IBAN");
     banking_horizontal->addWidget(iban);
-    bic = new textInputWidget("BIC", centralwidget);
+    bic = new textInputWidget("BIC");
     banking_horizontal->addWidget(bic);
     verticalLayout->addLayout(banking_horizontal);
 
-    tax_number = new textInputWidget("Steuernummer", centralwidget);
+    tax_number = new textInputWidget("Steuernummer");
     verticalLayout->addWidget(tax_number);
 
     product_label_create_horizontal = new QHBoxLayout();
-    products_label = new QLabel(centralwidget);
+    products_label = new QLabel();
     product_label_create_horizontal->addWidget(products_label);
 
-    add_product_button = new QPushButton(centralwidget);
+    add_product_button = new QPushButton();
     product_label_create_horizontal->addWidget(add_product_button);
 
     add_product_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding,
@@ -85,7 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     verticalLayout->addLayout(product_label_create_horizontal);
 
-    productList = new QListWidget(centralwidget);
+    productList = new QListWidget();
 
     verticalLayout->addWidget(productList);
 
@@ -95,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
                                                          QSizePolicy::Policy::Minimum);
     generate_invoice_button_center_layout->addItem(generate_invoice_button_space_left);
 
-    generate_invoice_button = new QPushButton(centralwidget);
+    generate_invoice_button = new QPushButton();
     generate_invoice_button_center_layout->addWidget(generate_invoice_button);
 
     generate_invoice_button_space_right = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding,
@@ -201,6 +201,7 @@ std::list<std::string> MainWindow::checkForMissingFields() const {
 
 
 void MainWindow::addProductWidget() {
+    // will be deleted by Qt memory management when necessary
     QListWidgetItem *item = new QListWidgetItem(productList);
     productWidget *customWidget = new productWidget(this);
     item->setSizeHint(customWidget->sizeHint());
@@ -229,27 +230,27 @@ void MainWindow::generateInvoice() {
         // display error message to the user
         QMessageBox::information(this, "Fehler", QString::fromStdString(text));
     } else {
-        std::list<ProductData *> products = {};
+        std::list<std::shared_ptr<ProductData>> products = {};
 
         // iterate through product list widget, create a ProductData Object for each entry and append to products list
         for (int row = 0; row < this->productList->count(); row++) {
             QListWidgetItem *item = this->productList->item(row);
             QWidget *child = productList->itemWidget(item);
-            if (productWidget *product_widget = dynamic_cast<productWidget *>(child)) {
-                products.push_back(new ProductData(product_widget->name->input->text().toStdString(),
-                                                   product_widget->count->input->value(),
-                                                   product_widget->ppe->input->text().toDouble()));
+            if (const productWidget *product_widget = dynamic_cast<productWidget *>(child)) {
+                products.push_back(std::make_shared<ProductData>(product_widget->name->input->text().toStdString(),
+                                                                 product_widget->count->input->value(),
+                                                                 product_widget->ppe->input->text().toDouble()));
             }
         }
 
         // generate InvoiceData object from form widgets
-        InvoiceData *invoice_data = new InvoiceData();
-        invoice_data->sender = new RepresentativeData(this->sender->name->input->text().toStdString(),
+        const std::shared_ptr<InvoiceData> invoice_data = std::make_shared<InvoiceData>();
+        invoice_data->sender = std::make_shared<RepresentativeData>(this->sender->name->input->text().toStdString(),
                                                       this->sender->street->input->text().toStdString(),
                                                       this->sender->housenumber->input->text().toStdString(),
                                                       this->sender->zipcode->input->text().toStdString(),
                                                       this->sender->city->input->text().toStdString());
-        invoice_data->recipient = new RepresentativeData(this->recipient->name->input->text().toStdString(),
+        invoice_data->recipient = std::make_shared<RepresentativeData>(this->recipient->name->input->text().toStdString(),
                                                          this->recipient->street->input->text().toStdString(),
                                                          this->recipient->housenumber->input->text().toStdString(),
                                                          this->recipient->zipcode->input->text().toStdString(),
@@ -261,10 +262,10 @@ void MainWindow::generateInvoice() {
         invoice_data->bic = this->bic->input->text().toStdString();
         invoice_data->tax_number = this->tax_number->input->text().toStdString();
         invoice_data->products = products;
-        Invoice *invoice = new Invoice(invoice_data);
+        const std::shared_ptr<Invoice> invoice = std::make_shared<Invoice>(invoice_data);
         // try to generate the pdf invoice and display success message with file location, display error code when pdf lib encounters error
         try {
-            std::string filepath = invoice->generate();
+            const std::string filepath = invoice->generate();
             QMessageBox::information(this, "Erfolg",
                                      QString::fromStdString("Rechnung unter " + filepath + " gespeichert"));
         } catch (PDFException &e) {

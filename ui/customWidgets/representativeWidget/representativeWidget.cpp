@@ -6,23 +6,24 @@
 representativeWidget::representativeWidget(QWidget *parent) : QWidget(parent) {
     representative_layout = new QVBoxLayout(this);
     representative_layout->setContentsMargins(0, 0, 0, 0);
-    name = new textInputWidget("Name", this);
+    name = new textInputWidget("Name");
 
     representative_layout->addWidget(name);
 
+    // parent will be set by adding to layout
     street_house_horizontal = new QHBoxLayout();
-    street = new textInputWidget("Straße", this);
+    street = new textInputWidget("Straße");
     street->input->setMinimumWidth(250);
     street_house_horizontal->addWidget(street);
 
-    housenumber = new textInputWidget("Hausnummer", this);
+    housenumber = new textInputWidget("Hausnummer");
     QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
     sizePolicy.setHorizontalStretch(0);
     sizePolicy.setVerticalStretch(0);
     sizePolicy.setHeightForWidth(housenumber->input->sizePolicy().hasHeightForWidth());
     housenumber->input->setSizePolicy(sizePolicy);
     housenumber->input->setFixedWidth(90);
-    housenumber->input->setValidator( new QIntValidator() );
+    housenumber->input->setValidator(new QIntValidator(housenumber));
 
     street_house_horizontal->addWidget(housenumber);
 
@@ -30,17 +31,19 @@ representativeWidget::representativeWidget(QWidget *parent) : QWidget(parent) {
     representative_layout->addLayout(street_house_horizontal);
 
     zip_city_horizontal = new QHBoxLayout();
-    zipcode = new textInputWidget("Postleitzahl", this);
+    zip_city_horizontal->setContentsMargins(0, 0, 0, 0);
+    zipcode = new textInputWidget("Postleitzahl");
     sizePolicy.setHeightForWidth(zipcode->input->sizePolicy().hasHeightForWidth());
     zipcode->input->setSizePolicy(sizePolicy);
     zipcode->input->setFixedWidth(100);
-    zipcode->input->setValidator( new QIntValidator(0, 99999) );
+    zipcode->input->setValidator(new QIntValidator(0, 99999, zipcode));
 
     zip_city_horizontal->addWidget(zipcode);
 
-    city = new textInputWidget("Stadt", this);
+    city = new textInputWidget("Stadt");
     zip_city_horizontal->addWidget(city);
 
 
     representative_layout->addLayout(zip_city_horizontal);
+    this->setLayout(representative_layout);
 }

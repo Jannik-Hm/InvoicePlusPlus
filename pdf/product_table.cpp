@@ -49,7 +49,7 @@ HPDF_REAL _createProductHeader(const HPDF_Page page, HPDF_Font font, HPDF_REAL y
 }
 
 HPDF_REAL product_table::createTotalRow(const HPDF_Page page, const HPDF_REAL padding_left, const HPDF_REAL padding_right, HPDF_REAL y,
-                                        const HPDF_REAL bottom_padding, const std::list<ProductData *> &products, const HPDF_Font font_bold) {
+                                        const HPDF_REAL bottom_padding, const std::list<std::shared_ptr<ProductData>> &products, const HPDF_Font font_bold) {
     const int font_size = 10;
     double total = 0;
     for (auto &i: products) {
@@ -78,7 +78,7 @@ HPDF_REAL product_table::createTotalRow(const HPDF_Page page, const HPDF_REAL pa
 /// @return The rest of the products, that did not fit onto the page
 product_table_return product_table::createProductTable(const HPDF_Page page, const HPDF_REAL padding_left, const HPDF_REAL padding_right,
                                                        const HPDF_REAL y, const HPDF_REAL bottom_padding,
-                                                       std::list<ProductData *> products, const HPDF_Font font_normal,
+                                                       std::list<std::shared_ptr<ProductData>> products, const HPDF_Font font_normal,
                                                        const HPDF_Font font_bold) {
     HPDF_REAL currentHeight = y;
     HPDF_Page_SetLineWidth(page, 2.0);
@@ -86,8 +86,8 @@ product_table_return product_table::createProductTable(const HPDF_Page page, con
     drawLine(page, padding_left, currentHeight - 5, padding_right, currentHeight - 5);
     currentHeight -= 10;
     HPDF_Page_SetLineWidth(page, 1.0);
-    for (std::list<ProductData *>::iterator i = products.begin(); i != products.end(); ++i) {
-        HPDF_REAL row_height = _createProductRow(page, font_normal, *i, currentHeight, padding_left, padding_right,
+    for (std::list<std::shared_ptr<ProductData>>::iterator i = products.begin(); i != products.end(); ++i) {
+        HPDF_REAL row_height = _createProductRow(page, font_normal, i->get(), currentHeight, padding_left, padding_right,
                                                  bottom_padding);
         if (&*i != &products.front() and row_height > 0) {
             drawLine(page, padding_left, currentHeight + 5, padding_right, currentHeight + 5);
@@ -97,7 +97,7 @@ product_table_return product_table::createProductTable(const HPDF_Page page, con
         currentHeight -= 10;
         if (row_height == 0) {
             // when Product does not fit anymore on the page, return it and the rest of the products
-            std::list<ProductData *> temp(i, products.end());
+            std::list<std::shared_ptr<ProductData>> temp(i, products.end());
             return {temp, y - currentHeight};
         }
     }

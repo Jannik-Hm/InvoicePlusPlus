@@ -4,11 +4,11 @@ dateInputWidget::dateInputWidget(const QString& inputLabel, QWidget *parent) : Q
 {
     layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
-    label = new QLabel(inputLabel, this);
+    label = new QLabel(inputLabel);
 
     layout->addWidget(label);
 
-    input = new QDateEdit(this);
+    input = new QDateEdit();
     input->setCalendarPopup(true);
 
     layout->addWidget(input);

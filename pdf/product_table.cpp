@@ -74,8 +74,6 @@ HPDF_REAL product_table::createTotalRow(const HPDF_Page page, const HPDF_REAL pa
     return std::max(total_label_height, total_num_height);
 }
 
-/// @brief Draws the Product Table on to a given pdf page
-/// @return The rest of the products, that did not fit onto the page
 product_table_return product_table::createProductTable(const HPDF_Page page, const HPDF_REAL padding_left, const HPDF_REAL padding_right,
                                                        const HPDF_REAL y, const HPDF_REAL bottom_padding,
                                                        std::list<std::shared_ptr<ProductData>> products, const HPDF_Font font_normal,

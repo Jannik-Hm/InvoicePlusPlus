@@ -12,6 +12,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
+/// @brief a Widget containing a label and a datepicker below
 class dateInputWidget : public QWidget {
     Q_OBJECT
 

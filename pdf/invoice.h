@@ -19,11 +19,23 @@ public:
         this->current_height = padding_top;
     }
     HPDF_Doc pdf;
+
+    /// @brief generate a PDF invoice and save it to the users downloads folder as the invoice_number.pdf
+    /// @return the location of the saved pdf
+    /// @exception PDFException
     std::string generate();
 private:
+
+    /// @brief create a new page and add to pages list
+    /// @return the created page
     HPDF_Page _generateNewPage();
+
+    /// @brief prints the footer on the current pdf page, excluding the page number
     void _generateFooter(HPDF_Page page) const;
+
+    /// @brief print page numbering on all pages
     void _generatePageNumbers() const;
+
     std::shared_ptr<InvoiceData> invoice_data{};
     std::list<HPDF_Page> pages{};
     float line_height_factor = 1.2;

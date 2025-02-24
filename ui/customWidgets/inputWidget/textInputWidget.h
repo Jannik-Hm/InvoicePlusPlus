@@ -7,6 +7,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
+/// @brief a Widget containing a label and a text input below
 class textInputWidget : public QWidget
 {
     Q_OBJECT

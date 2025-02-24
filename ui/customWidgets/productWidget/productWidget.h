@@ -9,6 +9,7 @@
 #include "../inputWidget/textInputWidget.h"
 #include "../inputWidget/spinBoxInputWidget.h"
 
+/// @brief the respective widget for entering product data
 class productWidget : public QWidget
 {
     Q_OBJECT

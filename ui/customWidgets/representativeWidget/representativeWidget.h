@@ -8,6 +8,7 @@
 #include <QLabel>
 #include "../inputWidget/textInputWidget.h"
 
+/// @brief the respective widget for entering representative data
 class representativeWidget : public QWidget
 {
     Q_OBJECT

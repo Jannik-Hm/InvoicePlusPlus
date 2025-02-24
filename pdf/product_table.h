@@ -11,6 +11,7 @@
 
 #include "../data_objects/product_data.h"
 
+/// @brief return struct for "createProductTable()"
 struct product_table_return {
     std::list<std::shared_ptr<ProductData>> rest;
     HPDF_REAL height;
@@ -18,10 +19,12 @@ struct product_table_return {
 
 class product_table {
 public:
-    /// Function to automatically draw the Product table on to a given invoice page
-    /// @returns Products unable to fit onto page without exceeding dimensions
+    /// @brief Function to automatically draw the Product table on to a given invoice page
+    /// @returns list of Products unable to fit onto page without exceeding dimensions and height of this element
     static product_table_return createProductTable(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y, HPDF_REAL bottom_padding, std::list<std::shared_ptr<ProductData>> products, HPDF_Font font, HPDF_Font font_bold);
 
+    /// @brief Draws the Product Table on to a given pdf page
+    /// @return the height of the element on the page
     static HPDF_REAL createTotalRow(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y, HPDF_REAL bottom_padding, const std::list<std::shared_ptr<ProductData>> &products, HPDF_Font font_bold);
 };
 

@@ -6,6 +6,8 @@
 #include <vector>
 #include <sstream>
 
+/// @brief converts a UTF8 string to ISO8859-1 / ANSI using iconv
+/// @return ANSI String
 inline std::string UTF8toISO8859_1(const std::string& utf8_str) {
     iconv_t conv_desc = iconv_open("ISO-8859-1//TRANSLIT", "UTF-8");
     if (conv_desc == reinterpret_cast<iconv_t>(-1)) {
@@ -28,6 +30,8 @@ inline std::string UTF8toISO8859_1(const std::string& utf8_str) {
     return result;
 }
 
+/// @brief converts various datatypes to string using ostringstream
+/// @return data as string
 template < typename Type > std::string to_str (const Type & t)
 {
     std::ostringstream os;

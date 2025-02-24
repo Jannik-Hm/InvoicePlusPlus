@@ -271,6 +271,9 @@ void MainWindow::generateInvoice() {
         } catch (PDFException &e) {
             HPDF_Free(invoice->pdf);
             QMessageBox::information(this, "Fehler", QString::fromStdString(e.message()));
+        } catch (std::runtime_error &e) {
+            HPDF_Free(invoice->pdf);
+            QMessageBox::information(this, "Fehler", e.what());
         }
 
         // TODO: switch over to shared_ptr instead of new

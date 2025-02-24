@@ -9,6 +9,7 @@
 #include "customWidgets/inputWidget/dateInputWidget.h"
 #include <QtCore/qcoreapplication.h>
 
+/// @brief main application window
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -48,11 +49,18 @@ public:
     QSpacerItem *generate_invoice_button_space_right;
 
 private:
+    /// @brief function checking for missing required fields
+    /// @return list with error messages of missing fields
     std::list<std::string> checkForMissingFields() const;
 
 private slots:
+    /// @brief helper function to add a product widget to the productList widget
     void addProductWidget();
+
+    /// @brief helper function to remove a product widget from the productList widget
     void removeProductWidget(const productWidget *widget) const;
+
+    /// @brief helper function to generate the PDF invoice
     void generateInvoice();
 
 private:

@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
+/// @brief a Widget containing a label and a spinbox (int input) below
 class spinBoxInputWidget : public QWidget
 {
     Q_OBJECT

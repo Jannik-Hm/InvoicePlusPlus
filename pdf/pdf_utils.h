@@ -8,6 +8,8 @@
 #include "pdf_exception.h"
 #include "../utils.h"
 
+/// @brief libharu error handler
+/// @exception PDFException
 inline void
   error_handler (HPDF_STATUS   error_no,
                  HPDF_STATUS   detail_no,
@@ -16,6 +18,8 @@ inline void
     throw PDFException(error_no, detail_no);
 }
 
+/// @brief calculates the height of a given text on the pdf
+/// @return height of the given text
 inline HPDF_REAL calculate_text_height(const HPDF_Page page, const char *text, HPDF_REAL max_width,
                                        HPDF_REAL line_height, HPDF_REAL max_lines = NULL) {
     HPDF_REAL real_width;
@@ -37,6 +41,8 @@ inline HPDF_REAL calculate_text_height(const HPDF_Page page, const char *text, H
     return total_lines * line_height;
 }
 
+/// @brief write text on to the pdf at a given point
+/// @return the height of this element on the pdf
 inline HPDF_REAL writeText(const HPDF_Page page, std::string text, HPDF_REAL left,
                     HPDF_REAL top, HPDF_REAL line_height, HPDF_REAL max_width, _HPDF_TextAlignment alignment, HPDF_REAL max_height) {
 
@@ -55,6 +61,8 @@ inline HPDF_REAL writeText(const HPDF_Page page, std::string text, HPDF_REAL lef
     return textHeight;
 }
 
+/// @brief write text on to the pdf at a given point when max height is not exceeded
+/// @return the height of this element on the pdf, 0 when max height is exceeded
 inline HPDF_REAL writeTextIfNotHeightExceeded(const HPDF_Page page, std::string text, HPDF_REAL left,
                     HPDF_REAL top, HPDF_REAL line_height, HPDF_REAL max_width, _HPDF_TextAlignment alignment, HPDF_REAL max_height) {
 
@@ -77,6 +85,8 @@ inline HPDF_REAL writeTextIfNotHeightExceeded(const HPDF_Page page, std::string 
     return textHeight;
 }
 
+/// @brief write text on to the pdf at a given point
+/// @return the height of this element on the pdf
 inline HPDF_REAL writeText(const HPDF_Page page, std::string text, HPDF_REAL left,
                     HPDF_REAL top, HPDF_REAL line_height, HPDF_REAL max_width, _HPDF_TextAlignment alignment, int max_lines = 0) {
 
@@ -95,6 +105,8 @@ inline HPDF_REAL writeText(const HPDF_Page page, std::string text, HPDF_REAL lef
     return textHeight;
 }
 
+/// @brief write text on to the pdf at a given point when max lines is not exceeded
+/// @return the height of this element on the pdf, 0 when max lines is exceeded
 inline HPDF_REAL writeTextIfNotLinesExceeded(const HPDF_Page page, std::string text, HPDF_REAL left,
                     HPDF_REAL top, HPDF_REAL line_height, HPDF_REAL max_width, _HPDF_TextAlignment alignment, int max_lines = 0) {
 
@@ -116,6 +128,8 @@ inline HPDF_REAL writeTextIfNotLinesExceeded(const HPDF_Page page, std::string t
     return textHeight;
 }
 
+/// @brief change the font and font size
+/// @return line height
 inline HPDF_REAL changeFont(const HPDF_Page page, HPDF_REAL font_size, HPDF_Font font) {
     float line_height = font_size * 1.2;
     HPDF_Page_SetFontAndSize(page, font, font_size);
@@ -123,6 +137,7 @@ inline HPDF_REAL changeFont(const HPDF_Page page, HPDF_REAL font_size, HPDF_Font
     return line_height;
 }
 
+/// @brief draw a line, line width needs to be set before
 inline void drawLine(HPDF_Page page, HPDF_REAL from_x, HPDF_REAL from_y, HPDF_REAL to_x, HPDF_REAL to_y) {
     HPDF_Page_MoveTo(page, from_x, from_y);
     HPDF_Page_LineTo(page, to_x, to_y);

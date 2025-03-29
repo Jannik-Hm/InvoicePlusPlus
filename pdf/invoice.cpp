@@ -34,7 +34,8 @@ void Invoice::_generateFooter(const HPDF_Page page) const {
     // center middle column
     std::string iban = "IBAN: " + this->invoice_data->iban;
     std::string bic = "BIC: " + this->invoice_data->bic;
-    HPDF_REAL banking_width = std::max(HPDF_Page_TextWidth(page, iban.c_str()), HPDF_Page_TextWidth(page, bic.c_str()));
+    // calculate maximum width of iban and bic + safe space when calculation returns a bit less than actually required
+    HPDF_REAL banking_width = std::max(HPDF_Page_TextWidth(page, iban.c_str()), HPDF_Page_TextWidth(page, bic.c_str())) + 10.0;
     HPDF_REAL banking_x = padding_left + column_width + (column_width - banking_width) / 2.0;
     writeText(page, iban, banking_x, line_1_y, line_height, banking_width, HPDF_TALIGN_LEFT);
     writeText(page, bic, banking_x, line2_y, line_height, banking_width, HPDF_TALIGN_LEFT);

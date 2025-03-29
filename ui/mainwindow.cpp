@@ -118,7 +118,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(add_product_button, &QPushButton::clicked, this, &MainWindow::addProductWidget);
     connect(generate_invoice_button, &QPushButton::clicked, this, &MainWindow::generateInvoice);
-    //TODO: some kind of user feedback, that generation succeeded -> QMessageBox
 }
 
 std::list<std::string> MainWindow::checkForMissingFields() const {
@@ -279,7 +278,5 @@ void MainWindow::generateInvoice() {
             HPDF_Free(invoice->pdf);
             QMessageBox::information(this, "Fehler", e.what());
         }
-
-        // TODO: switch over to shared_ptr instead of new
     }
 }

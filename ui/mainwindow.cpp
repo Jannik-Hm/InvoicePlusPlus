@@ -105,6 +105,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     verticalLayout->addLayout(generate_invoice_button_center_layout);
 
+    //TODO: move this into the newInputItems
     this->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
     sender_label->setText(QCoreApplication::translate("MainWindow", "Verfasser", nullptr));
     recipient_label->setText(QCoreApplication::translate("MainWindow", "Empfänger", nullptr));
@@ -233,13 +234,16 @@ void MainWindow::generateInvoice() {
         std::list<std::shared_ptr<ProductData>> products = {};
 
         // iterate through product list widget, create a ProductData Object for each entry and append to products list
+
+        QLocale locale = QLocale::system();
+
         for (int row = 0; row < this->productList->count(); row++) {
             QListWidgetItem *item = this->productList->item(row);
             QWidget *child = productList->itemWidget(item);
             if (const productWidget *product_widget = dynamic_cast<productWidget *>(child)) {
                 products.push_back(std::make_shared<ProductData>(product_widget->name->input->text().toStdString(),
                                                                  product_widget->count->input->value(),
-                                                                 product_widget->ppe->input->text().toDouble()));
+                                                                 locale.toDouble(product_widget->ppe->input->text())));
             }
         }
 

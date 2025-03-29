@@ -151,7 +151,6 @@ std::string Invoice::generate() {
     while (table.rest.size() > 0) {
         table = product_table::createProductTable(this->_generateNewPage(), padding_left, padding_right, current_height,
                                                   this->padding_bottom, table.rest, this->font_normal, this->font_bold);
-        std::cout << table.rest.size() << std::endl;
     }
     current_height -= table.height;
 

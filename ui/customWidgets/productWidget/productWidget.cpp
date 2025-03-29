@@ -21,7 +21,14 @@ productWidget::productWidget(QWidget *parent) : QWidget(parent) {
     sizePolicy.setHeightForWidth(ppe->input->sizePolicy().hasHeightForWidth());
     ppe->input->setSizePolicy(sizePolicy);
     ppe->input->setFixedWidth(100);
-    ppe->input->setValidator( new QDoubleValidator(ppe) );
+
+    const QLocale locale = QLocale::system();
+    // Note: Validator is safely deleted in line 52, Memory Leak Warning can be ignored
+    QDoubleValidator* validator = new QDoubleValidator();
+    validator->setLocale(locale);
+    validator->deleteLater();
+
+    ppe->input->setValidator( validator );
 
     horizontalLayout->addWidget(ppe);
 
@@ -42,5 +49,6 @@ productWidget::productWidget(QWidget *parent) : QWidget(parent) {
 }
 
 void productWidget::handleDelete() {
+    delete this->ppe->input->validator();
     emit requestDeletion(this);
 }

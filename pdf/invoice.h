@@ -8,7 +8,7 @@
 
 class Invoice {
 public:
-    explicit Invoice(std::shared_ptr<InvoiceData> invoice_data) {
+    explicit Invoice(const std::shared_ptr<InvoiceData> &invoice_data) {
         this->invoice_data = invoice_data;
         this->pdf = HPDF_New(error_handler, nullptr);
         if (!pdf) {

@@ -89,7 +89,6 @@ product_table_return product_table::createProductTable(const HPDF_Page page, con
                                                  bottom_padding);
         if (&*i != &products.front() and row_height > 0) {
             drawLine(page, padding_left, currentHeight + 5, padding_right, currentHeight + 5);
-            std::cout << currentHeight + row_height - 5 << " " << currentHeight << " " << row_height << std::endl;
         }
         currentHeight -= row_height;
         currentHeight -= 10;

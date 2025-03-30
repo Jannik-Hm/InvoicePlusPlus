@@ -17,8 +17,6 @@ public:
     QLabel *label;
     QSpinBox *input;
 
-
-private:
 };
 
 #endif //SPININPUTWIDGET_H

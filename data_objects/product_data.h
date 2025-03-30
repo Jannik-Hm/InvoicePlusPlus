@@ -8,7 +8,7 @@ public:
         this->name = name;
         this->count = count;
         this->price_per_unit = price_per_unit;
-    };
+    }
     std::string name;
     int count;
     double price_per_unit;

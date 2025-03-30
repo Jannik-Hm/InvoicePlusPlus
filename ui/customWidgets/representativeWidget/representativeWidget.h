@@ -1,11 +1,6 @@
 #ifndef REPRESENTATIVEWIDGET_H
 #define REPRESENTATIVEWIDGET_H
 
-#include <QWidget>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QLabel>
 #include "../inputWidget/textInputWidget.h"
 
 /// @brief the respective widget for entering representative data
@@ -24,8 +19,6 @@ public:
     textInputWidget *zipcode;
     textInputWidget *city;
 
-
-private:
 };
 
 #endif //REPRESENTATIVEWIDGET_H

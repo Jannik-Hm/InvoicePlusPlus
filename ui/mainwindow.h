@@ -63,6 +63,5 @@ private slots:
     /// @brief helper function to generate the PDF invoice
     void generateInvoice();
 
-private:
 };
 #endif // MAINWINDOW_H

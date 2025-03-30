@@ -23,7 +23,6 @@ public:
     QLabel *label;
     QDateEdit *input;
 
-private:
 };
 
 

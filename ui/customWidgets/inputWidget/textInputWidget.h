@@ -18,8 +18,6 @@ public:
     QLabel *label;
     QLineEdit *input;
 
-
-private:
 };
 
 #endif //TEXTINPUTWIDGET_H

@@ -4,7 +4,6 @@
 #include "product_table.h"
 #include "../ui/customWidgets/inputWidget/dateInputWidget.h"
 #include <QStandardPaths>
-#include <QMessageBox>
 
 HPDF_Page Invoice::_generateNewPage() {
     const HPDF_Page new_page = HPDF_AddPage(this->pdf);
@@ -32,11 +31,11 @@ void Invoice::_generateFooter(const HPDF_Page page) const {
               line_height, column_width, HPDF_TALIGN_LEFT);
 
     // center middle column
-    std::string iban = "IBAN: " + this->invoice_data->iban;
-    std::string bic = "BIC: " + this->invoice_data->bic;
+    const std::string iban = "IBAN: " + this->invoice_data->iban;
+    const std::string bic = "BIC: " + this->invoice_data->bic;
     // calculate maximum width of iban and bic + safe space when calculation returns a bit less than actually required
-    HPDF_REAL banking_width = std::max(HPDF_Page_TextWidth(page, iban.c_str()), HPDF_Page_TextWidth(page, bic.c_str())) + 10.0;
-    HPDF_REAL banking_x = padding_left + column_width + (column_width - banking_width) / 2.0;
+    const HPDF_REAL banking_width = std::max(HPDF_Page_TextWidth(page, iban.c_str()), HPDF_Page_TextWidth(page, bic.c_str())) + 10.0;
+    const HPDF_REAL banking_x = padding_left + column_width + (column_width - banking_width) / 2.0;
     writeText(page, iban, banking_x, line_1_y, line_height, banking_width, HPDF_TALIGN_LEFT);
     writeText(page, bic, banking_x, line2_y, line_height, banking_width, HPDF_TALIGN_LEFT);
 
@@ -89,8 +88,8 @@ std::string Invoice::generate() {
 
     float invoiceMeta_data_y = current_height - 1; //correction as address font size is 11 and invoiceMeta 10
 
-    HPDF_REAL invoiceMeta_data_x = innerWidth / 2 + 200 + 10;
-    float font_size = invoiceMeta_font_size;
+    const HPDF_REAL invoiceMeta_data_x = innerWidth / 2 + 200 + 10;
+    const float font_size = invoiceMeta_font_size;
     line_height = changeFont(first_page, font_size, font_bold);
     writeText(first_page, "Rechnung Nr.:", innerWidth / 2, invoiceMeta_data_y, line_height, 200, HPDF_TALIGN_RIGHT, 1);
 
@@ -130,7 +129,7 @@ std::string Invoice::generate() {
         first_page, this->invoice_data->recipient->zipcode + " " + this->invoice_data->recipient->city,
         this->padding_left, current_height, line_height, innerWidth / 2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
 
-    HPDF_REAL text_width = HPDF_Page_TextWidth(first_page, invoice_date.c_str());
+    const HPDF_REAL text_width = HPDF_Page_TextWidth(first_page, invoice_date.c_str());
     // get lowest point of left and right text
     current_height = std::min(invoiceMeta_data_y, current_height) - 30;
     writeText(first_page, invoice_date, padding_right - text_width, current_height, line_height, text_width,
@@ -138,7 +137,7 @@ std::string Invoice::generate() {
 
     line_height = changeFont(first_page, title_font_size, this->font_bold);
     std::string title = this->invoice_data->invoice_title;
-    std::transform(title.begin(), title.end(), title.begin(), ::toupper);
+    std::transform(title.begin(), title.end(), title.begin(), toupper);
     current_height -= writeText(first_page, title, this->padding_left, current_height, line_height,
                                 innerWidth / 2 - this->padding_left, HPDF_TALIGN_LEFT, 1);
 
@@ -148,7 +147,7 @@ std::string Invoice::generate() {
                                                                    current_height, this->padding_bottom,
                                                                    this->invoice_data->products, this->font_normal,
                                                                    this->font_bold);
-    while (table.rest.size() > 0) {
+    while (!table.rest.empty()) {
         table = product_table::createProductTable(this->_generateNewPage(), padding_left, padding_right, current_height,
                                                   this->padding_bottom, table.rest, this->font_normal, this->font_bold);
     }

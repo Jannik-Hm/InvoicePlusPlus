@@ -1,11 +1,6 @@
 #ifndef PRODUCTWIDGET_H
 #define PRODUCTWIDGET_H
 
-#include <QWidget>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QLabel>
 #include "../inputWidget/textInputWidget.h"
 #include "../inputWidget/spinBoxInputWidget.h"
 
@@ -30,7 +25,6 @@ public:
     private slots:
         void handleDelete();
 
-private:
 };
 
 #endif // PRODUCTWIDGET_H

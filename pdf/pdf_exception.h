@@ -5,7 +5,6 @@
 /// @brief Libharu Exception
 /// @details This exception will be thrown when Libharu encounters an error
 class PDFException : public std::exception {
-private:
     HPDF_STATUS error_code;
     HPDF_STATUS detail_code;
 

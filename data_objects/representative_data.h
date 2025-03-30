@@ -10,7 +10,7 @@ public:
         this->housenumber = housenumber;
         this->zipcode = zipcode;
         this->city = city;
-    };
+    }
     std::string name;
     std::string street;
     std::string housenumber;

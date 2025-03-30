@@ -3,8 +3,8 @@
 Invoice++ is a simple C++ based tool to generate a PDF Invoice.
 The generated Invoice will be saved to your Downloads folder as *invoice_number*.pdf
 
->[!NOTE]
->Inputs are limited to reasonable lengths. In case you hit these limits, feel free to suggest changes.
+> [!NOTE]
+> Inputs are limited to reasonable lengths. In case you hit these limits, feel free to suggest changes.
 
 ## Run on macOS
 
@@ -13,17 +13,17 @@ The pdf lib is statically linked into the binary.
 
 ## Develop and Build
 
->[!WARNING]
->The CMake file is designed for development on macOS. <br/>
->For development and build on other platforms, paths might need to be adjusted.
+> [!WARNING]
+> The CMake file is designed for development on macOS. <br/>
+> For development and build on other platforms, paths might need to be adjusted.
 
 ### macOS Setup
 Dependency installation:
 - libharu <br/> `brew install libharu`
 - Qt <br/> `brew install qt`
 
->[!WARNING]
->The project was developed using CLion, compilation using other IDEs has not been validated
+> [!WARNING]
+> The project was developed using CLion, compilation using other IDEs has not been validated
 
 ## License information
 

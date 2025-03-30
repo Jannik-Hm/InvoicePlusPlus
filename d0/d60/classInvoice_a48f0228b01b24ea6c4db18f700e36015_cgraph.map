@@ -12,7 +12,7 @@
 <area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="88,177,130,215,158,236,189,253,249,274,311,290,432,308,431,313,310,296,247,280,187,258,155,240,127,220,84,181"/>
 <area shape="rect" id="Node000011" href="$d5/d0b/classproduct__table.html#adf1b09a9c7c79633006a53f5000f7cd6" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="188,203,397,243"/>
 <area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="123,176,203,197,202,202,122,181"/>
-<area shape="rect" id="Node000015" href="$d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" title="Draws the Product Table on to a given pdf page." alt="" coords="452,53,671,79"/>
+<area shape="rect" id="Node000015" href="$d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" title="Draws the Product Tables Total Row on to a given pdf page." alt="" coords="452,53,671,79"/>
 <area shape="poly" id="edge26_Node000001_Node000015" title=" " alt="" coords="81,151,123,105,153,80,187,62,225,50,265,42,346,36,423,40,489,48,488,53,423,45,346,41,266,47,227,55,189,67,156,85,126,109,85,155"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="630,125,774,153,773,158,629,131"/>
 <area shape="rect" id="Node000004" href="$d1/d5c/pdf__utils_8h.html#ab2771327d46765d94e49f3acf8d0d539" title="draw a line, line width needs to be set before" alt="" coords="795,53,876,79"/>

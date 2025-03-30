@@ -10,7 +10,7 @@
 <area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="685,154,651,159,650,154,684,149"/>
 <area shape="rect" id="Node000008" href="$d0/d60/classInvoice.html#a29edd9e425464d3b97e00c6da3c83a7e" title="print page numbering on all pages" alt="" coords="188,256,420,281"/>
 <area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="715,165,652,195,585,216,517,234,393,259,392,253,516,229,584,211,650,190,712,160"/>
-<area shape="rect" id="Node000009" href="$d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" title="Draws the Product Table on to a given pdf page." alt="" coords="195,305,413,331"/>
+<area shape="rect" id="Node000009" href="$d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" title="Draws the Product Tables Total Row on to a given pdf page." alt="" coords="195,305,413,331"/>
 <area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="733,169,699,211,677,232,652,250,594,276,532,295,471,308,414,316,413,310,470,303,531,290,592,271,649,245,674,228,695,207,728,166"/>
 <area shape="rect" id="Node000003" href="$d5/d0b/classproduct__table.html#adf1b09a9c7c79633006a53f5000f7cd6" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="199,41,409,81"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="470,36,409,46,408,41,469,30"/>

@@ -320,7 +320,7 @@ var sectionId = 'dynsection-3';
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="../../d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" target="_top" xlink:title="Draws the Product Table on to a given pdf page.">
+<g id="a_Node000012"><a xlink:href="../../d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" target="_top" xlink:title="Draws the Product Tables Total Row on to a given pdf page.">
 <polygon fill="white" stroke="#666666" points="306,-32 142,-32 142,-13 306,-13 306,-32"/>
 <text text-anchor="middle" x="224" y="-20" font-family="Helvetica,sans-Serif" font-size="10.00">product_table::createTotalRow</text>
 </a>

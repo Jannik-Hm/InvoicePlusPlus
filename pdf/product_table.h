@@ -23,7 +23,7 @@ public:
     /// @returns list of Products unable to fit onto page without exceeding dimensions and height of this element
     static product_table_return createProductTable(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y, HPDF_REAL bottom_padding, std::list<std::shared_ptr<ProductData>> products, HPDF_Font font, HPDF_Font font_bold);
 
-    /// @brief Draws the Product Table on to a given pdf page
+    /// @brief Draws the Product Tables Total Row on to a given pdf page
     /// @return the height of the element on the page
     static HPDF_REAL createTotalRow(HPDF_Page page, HPDF_REAL padding_left, HPDF_REAL padding_right, HPDF_REAL y, HPDF_REAL bottom_padding, const std::list<std::shared_ptr<ProductData>> &products, HPDF_Font font_bold);
 };

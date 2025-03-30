@@ -14,12 +14,16 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) {
     if (this->objectName().isEmpty())
         this->resize(800, 800);
+
+    this->setWindowTitle("Invoice++");
+
     centralwidget = new QWidget(this);
     verticalLayout = new QVBoxLayout(centralwidget);
     representatives_layout = new QHBoxLayout();
 
     sender_layout = new QVBoxLayout();
     sender_label = new QLabel();
+    sender_label->setText("Verfasser");
     sender_layout->addWidget(sender_label);
     sender = new representativeWidget();
     sender_layout->addWidget(sender);
@@ -31,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     recipient_layout = new QVBoxLayout();
     recipient_label = new QLabel();
+    recipient_label->setText("Empfänger");
     recipient_layout->addWidget(recipient_label);
     recipient = new representativeWidget();
     recipient_layout->addWidget(recipient);
@@ -41,9 +46,11 @@ MainWindow::MainWindow(QWidget *parent)
     number_date_horizontal = new QHBoxLayout();
 
     invoice_number = new textInputWidget("Rechnungsnummer");
+    invoice_number->input->setMaxLength(15);
     number_date_horizontal->addWidget(invoice_number);
 
     invoice_service_date = new dateInputWidget("Leistungsdatum");
+    invoice_service_date->input->setDisplayFormat( "dd.MM.yyyy");
     invoice_service_date->input->setMinimumDate(QDate(1900, 1, 1));
     invoice_service_date->input->setDate(QDate::currentDate());
     invoice_service_date->input->setMaximumDate(QDate::currentDate());
@@ -54,6 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
     verticalLayout->addLayout(number_date_horizontal);
 
     invoice_title = new textInputWidget("Rechnungstitel");
+    invoice_title->input->setMaxLength(28);
     invoice_title->input->setPlaceholderText("Projekt XY");
 
     verticalLayout->addWidget(invoice_title);
@@ -61,19 +69,22 @@ MainWindow::MainWindow(QWidget *parent)
     footer_label = new QLabel("Fußzeile");
     verticalLayout->addWidget(footer_label);
 
-    //TODO: needs styling (width) + regex validator
     banking_horizontal = new QHBoxLayout();
     iban = new textInputWidget("IBAN");
+    iban->input->setMaxLength(34);
     banking_horizontal->addWidget(iban);
     bic = new textInputWidget("BIC");
+    bic->input->setMaxLength(11);
     banking_horizontal->addWidget(bic);
     verticalLayout->addLayout(banking_horizontal);
 
     tax_number = new textInputWidget("Steuernummer");
+    tax_number->input->setMaxLength(13);
     verticalLayout->addWidget(tax_number);
 
     product_label_create_horizontal = new QHBoxLayout();
     products_label = new QLabel();
+    products_label->setText("Produkte");
     product_label_create_horizontal->addWidget(products_label);
 
     add_product_button = new QPushButton();
@@ -105,12 +116,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     verticalLayout->addLayout(generate_invoice_button_center_layout);
 
-    //TODO: move this into the newInputItems
-    this->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-    sender_label->setText(QCoreApplication::translate("MainWindow", "Verfasser", nullptr));
-    recipient_label->setText(QCoreApplication::translate("MainWindow", "Empfänger", nullptr));
-    invoice_service_date->input->setDisplayFormat(QCoreApplication::translate("MainWindow", "dd.MM.yyyy", nullptr));
-    products_label->setText(QCoreApplication::translate("MainWindow", "Produkte", nullptr));
     add_product_button->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
     generate_invoice_button->setText(QCoreApplication::translate("MainWindow", "Generieren", nullptr));
 
@@ -176,7 +181,7 @@ std::list<std::string> MainWindow::checkForMissingFields() const {
         for (int row = 0; row < this->productList->count(); row++) {
             QListWidgetItem *item = this->productList->item(row);
             QWidget *child = productList->itemWidget(item);
-            if (productWidget *product_widget = dynamic_cast<productWidget *>(child)) {
+            if (const productWidget *product_widget = dynamic_cast<productWidget *>(child)) {
                 if (product_widget->name->input->text() == "") {
                     is_missing_name = true;
                 }
@@ -221,7 +226,7 @@ void MainWindow::removeProductWidget(const productWidget *widget) const {
 }
 
 void MainWindow::generateInvoice() {
-    if (std::list<std::string> missing_fields = checkForMissingFields(); missing_fields.size() > 0) {
+    if (std::list<std::string> missing_fields = checkForMissingFields(); !missing_fields.empty()) {
         // merge list of error messages into \n seperated string
         const std::string text = std::accumulate(missing_fields.begin(), missing_fields.end(), std::string(),
                                                  [](const std::string &a, const std::string &b) {
@@ -234,7 +239,7 @@ void MainWindow::generateInvoice() {
 
         // iterate through product list widget, create a ProductData Object for each entry and append to products list
 
-        QLocale locale = QLocale::system();
+        const QLocale locale = QLocale::system();
 
         for (int row = 0; row < this->productList->count(); row++) {
             QListWidgetItem *item = this->productList->item(row);

@@ -8,6 +8,10 @@ productWidget::productWidget(QWidget *parent) : QWidget(parent) {
     verticalLayout = new QVBoxLayout();
     //parent not required, as it is overwritten by adding to a layout
     name = new textInputWidget("Name");
+    // require a space every 50 chars
+    const QRegularExpression regex("^(?:(?=.{0,50}$)\\S+|(?:\\S{0,50}\\s+)+\\S{0,50})$");
+    const QRegularExpressionValidator *nameValidator = new QRegularExpressionValidator(regex, name->input);
+    name->input->setValidator(nameValidator);
     verticalLayout->addWidget(name);
 
 
@@ -24,9 +28,11 @@ productWidget::productWidget(QWidget *parent) : QWidget(parent) {
 
     const QLocale locale = QLocale::system();
     // Note: Validator is safely deleted in line 52, Memory Leak Warning can be ignored
-    QDoubleValidator* validator = new QDoubleValidator();
+    QDoubleValidator* validator = new QDoubleValidator(ppe->input);
+    validator->setBottom(0.0);
+    validator->setDecimals(6);
+    validator->setTop(99999999999999.999999);
     validator->setLocale(locale);
-    validator->deleteLater();
 
     ppe->input->setValidator( validator );
 
@@ -38,6 +44,7 @@ productWidget::productWidget(QWidget *parent) : QWidget(parent) {
     count->input->setSizePolicy(sizePolicy);
     count->input->setFixedWidth(100);
     count->input->setValue(1);
+    count->input->setMaximum(99999);
 
     horizontalLayout->addWidget(count);
 

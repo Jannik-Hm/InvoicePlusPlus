@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['sender_0',['sender',['../d0/dba/classInvoiceData.html#aeef6f1b9792ba1512625a5a65eac80b3',1,'InvoiceData::sender'],['../d6/d1a/classMainWindow.html#acf64953346aea306c471ba072e2fccd5',1,'MainWindow::sender']]],
-  ['sender_5flabel_1',['sender_label',['../d6/d1a/classMainWindow.html#a0474b9f78a347f99cdd7cf1c996ea9fe',1,'MainWindow']]],
-  ['sender_5flayout_2',['sender_layout',['../d6/d1a/classMainWindow.html#a5666f48e85f62c99554658de1607c554',1,'MainWindow']]],
-  ['spinboxinputwidget_3',['spinBoxInputWidget',['../d6/d52/classspinBoxInputWidget.html',1,'spinBoxInputWidget'],['../d6/d52/classspinBoxInputWidget.html#a1b47130cce50ebe56f6ec2e2b49f3560',1,'spinBoxInputWidget::spinBoxInputWidget()']]],
-  ['spinboxinputwidget_2ecpp_4',['spinBoxInputWidget.cpp',['../de/d6d/spinBoxInputWidget_8cpp.html',1,'']]],
-  ['spinboxinputwidget_2eh_5',['spinBoxInputWidget.h',['../d1/dd8/spinBoxInputWidget_8h.html',1,'']]],
-  ['street_6',['street',['../da/dac/classRepresentativeData.html#aefe8f84148442a26f52cafe58f9b98ef',1,'RepresentativeData::street'],['../d0/d49/classrepresentativeWidget.html#aeb908d448470c49ca6c9d1878c49c4da',1,'representativeWidget::street']]],
-  ['street_5fhouse_5fhorizontal_7',['street_house_horizontal',['../d0/d49/classrepresentativeWidget.html#ae003e1d43dab73131c04d26b7a84766f',1,'representativeWidget']]]
+  ['readme_2emd_0',['README.md',['../da/ddd/README_8md.html',1,'']]],
+  ['recipient_1',['recipient',['../d0/dba/classInvoiceData.html#aadc638eb70b32920c285c16ee996a3c8',1,'InvoiceData::recipient'],['../d6/d1a/classMainWindow.html#a95da725c1a287d6f4518bfe616e4130a',1,'MainWindow::recipient']]],
+  ['recipient_5flabel_2',['recipient_label',['../d6/d1a/classMainWindow.html#a847f1b82592ac94acfc9643e4e9b3443',1,'MainWindow']]],
+  ['recipient_5flayout_3',['recipient_layout',['../d6/d1a/classMainWindow.html#ad5043ca11c6dd9bf421aceae2437c40f',1,'MainWindow']]],
+  ['recipients_5fspacer_4',['recipients_spacer',['../d6/d1a/classMainWindow.html#a109966a2fbca7db1b103652e008b8d93',1,'MainWindow']]],
+  ['removeproductwidget_5',['removeProductWidget',['../d6/d1a/classMainWindow.html#a15e61a8508e878fb41f15e0a52bdd9f5',1,'MainWindow']]],
+  ['representative_5fdata_2eh_6',['representative_data.h',['../dd/dca/representative__data_8h.html',1,'']]],
+  ['representative_5flayout_7',['representative_layout',['../d0/d49/classrepresentativeWidget.html#a8e5f5916d4e0f64e5d7a23cc3ffff330',1,'representativeWidget']]],
+  ['representativedata_8',['RepresentativeData',['../da/dac/classRepresentativeData.html',1,'RepresentativeData'],['../da/dac/classRepresentativeData.html#a5d39e0edb9096d602d27adf8d318b801',1,'RepresentativeData::RepresentativeData()']]],
+  ['representatives_5flayout_9',['representatives_layout',['../d6/d1a/classMainWindow.html#ac11546a89756403642fe4a3a807627bf',1,'MainWindow']]],
+  ['representativewidget_10',['representativeWidget',['../d0/d49/classrepresentativeWidget.html',1,'representativeWidget'],['../d0/d49/classrepresentativeWidget.html#ae356121e9d634b029641460f79d805e4',1,'representativeWidget::representativeWidget()']]],
+  ['representativewidget_2ecpp_11',['representativeWidget.cpp',['../da/d16/representativeWidget_8cpp.html',1,'']]],
+  ['representativewidget_2eh_12',['representativeWidget.h',['../d1/db6/representativeWidget_8h.html',1,'']]],
+  ['requestdeletion_13',['requestDeletion',['../d5/ddc/classproductWidget.html#a63260ea7f3df590fe9c36c9e6ac5fd1e',1,'productWidget']]],
+  ['rest_14',['rest',['../d8/df7/structproduct__table__return.html#a7b32535b977c3422515b79aef6808de2',1,'product_table_return']]],
+  ['run_20on_20macos_15',['Run on macOS',['../index.html#autotoc_md1',1,'']]]
 ];

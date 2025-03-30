@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Invoice++: Main Page</title>
+<title>Invoice++: Invoice++ (InvoicePlusPlus)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -96,17 +96,43 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Invoice++ Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Invoice++ (InvoicePlusPlus) </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<p>Invoice++ is a simple C++ based tool to generate a PDF <a class="el" href="d0/d60/classInvoice.html">Invoice</a>. The generated <a class="el" href="d0/d60/classInvoice.html">Invoice</a> will be saved to your Downloads folder as <em>invoice_number</em>.pdf</p>
+<p>&gt;[!NOTE] &gt;Inputs are limited to reasonable lengths. In case you hit these limits, feel free to suggest changes.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Run on macOS</h1>
+<p>When a binary has been provided to you, you only need to install <code>Qt</code> using <code>brew install qt</code>. <br  />
+ The pdf lib is statically linked into the binary.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Develop and Build</h1>
+<p>&gt;[!WARNING] &gt;The CMake file is designed for development on macOS. <br  />
+ &gt;For development and build on other platforms, paths might need to be adjusted.</p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+macOS Setup</h2>
+<p>Dependency installation:</p><ul>
+<li>libharu <br  />
+ <code>brew install libharu</code></li>
+<li>Qt <br  />
+ <code>brew install qt</code></li>
+</ul>
+<p>&gt;[!WARNING] &gt;The project was developed using CLion, compilation using other IDEs has not been validated</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+License information</h1>
+<p>The license can be found under LICENSE in the Repository root folder.</p>
+<p>During the development process, tools such as generative AI (ChatGPT), StackOverflow as well as official documentation have been used as inspiration or to generate certain functions such as the UTF-8 to ANSI string conversion.</p>
+<p>I do not take responsibility for any external libraries used. </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Mar 30 2025 13:40:24 for Invoice++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Sun Mar 30 2025 14:04:15 for Invoice++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['verticallayout_0',['verticalLayout',['../d5/ddc/classproductWidget.html#a06ddac0f95a8df89866da14298c2077f',1,'productWidget::verticalLayout'],['../d6/d1a/classMainWindow.html#a27112d7db9fb5d46fe348f82ec04575c',1,'MainWindow::verticalLayout']]]
+  ['utf8toiso8859_5f1_0',['UTF8toISO8859_1',['../d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe',1,'utils.h']]],
+  ['utils_2eh_1',['utils.h',['../d5/d60/utils_8h.html',1,'']]]
 ];

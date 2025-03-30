@@ -11,6 +11,8 @@ The generated Invoice will be saved to your Downloads folder as *invoice_number*
 When a binary has been provided to you, you only need to install `Qt` using `brew install qt`. <br/>
 The pdf lib is statically linked into the binary.
 
+Additionally if the binary was not signed, you need to run `xattr -d com.apple.quarantine Invoice++.app` in the directory where your binary is located to disable the quarantine attribute caused by downloading.
+
 ## Develop and Build
 
 > [!WARNING]

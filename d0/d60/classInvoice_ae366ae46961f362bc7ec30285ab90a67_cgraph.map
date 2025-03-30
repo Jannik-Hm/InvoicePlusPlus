@@ -1,0 +1,15 @@
+<map id="Invoice::_generateNewPage" name="Invoice::_generateNewPage">
+<area shape="rect" id="Node000001" title="create a new page and add to pages list" alt="" coords="5,55,208,80"/>
+<area shape="rect" id="Node000002" href="$d0/d60/classInvoice.html#ab4acb460d577d22d5eec6a66cd36f451" title="prints the footer on the current pdf page, excluding the page number" alt="" coords="256,55,439,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,65,242,65,242,70,208,70"/>
+<area shape="rect" id="Node000003" href="$d1/d5c/pdf__utils_8h.html#a8f9be0ef8bc5cfda0696a2a158d9f20c" title="change the font and font size" alt="" coords="487,5,584,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,52,473,32,474,37,397,57"/>
+<area shape="rect" id="Node000004" href="$d1/d5c/pdf__utils_8h.html#ab2771327d46765d94e49f3acf8d0d539" title="draw a line, line width needs to be set before" alt="" coords="495,55,576,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="439,65,481,65,481,70,439,70"/>
+<area shape="rect" id="Node000005" href="$d1/d5c/pdf__utils_8h.html#a718810ab35a6f1052271a2edb887936f" title="write text on to the pdf at a given point" alt="" coords="494,104,577,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="397,77,482,100,480,105,396,83"/>
+<area shape="rect" id="Node000006" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="632,79,795,104"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="577,108,618,102,619,107,577,113"/>
+<area shape="rect" id="Node000007" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="644,128,783,153"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="577,120,631,127,630,132,577,125"/>
+</map>

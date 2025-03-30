@@ -1,0 +1,12 @@
+<map id="MainWindow::addProductWidget" name="MainWindow::addProductWidget">
+<area shape="rect" id="Node000001" title="helper function to add a product widget to the productList widget" alt="" coords="5,42,237,67"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#a15e61a8508e878fb41f15e0a52bdd9f5" title="helper function to remove a product widget from the productList widget" alt="" coords="294,5,506,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,40,280,35,281,41,238,45"/>
+<area shape="rect" id="Node000003" href="$d5/ddc/classproductWidget.html#a63260ea7f3df590fe9c36c9e6ac5fd1e" title=" " alt="" coords="285,70,515,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,64,272,67,272,72,237,69"/>
+<area shape="rect" id="Node000004" href="$d5/ddc/classproductWidget.html#a09a25507340e6cef7121dc4796df83e2" title=" " alt="" coords="563,45,783,70"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="515,69,549,66,549,71,515,75"/>
+<area shape="rect" id="Node000005" href="$d5/ddc/classproductWidget.html#ada0eb5a2b09521fa42d4ef72daaabe18" title=" " alt="" coords="831,70,1043,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="783,65,817,69,816,74,783,71"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="830,85,529,85,529,80,830,80"/>
+</map>

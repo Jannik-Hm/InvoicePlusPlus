@@ -1,0 +1,15 @@
+<map id="product_table::createTotalRow" name="product_table::createTotalRow">
+<area shape="rect" id="Node000001" title="Draws the Product Table on to a given pdf page." alt="" coords="5,80,224,105"/>
+<area shape="rect" id="Node000002" href="$d1/d5c/pdf__utils_8h.html#a8f9be0ef8bc5cfda0696a2a158d9f20c" title="change the font and font size" alt="" coords="333,5,431,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,77,271,39,319,28,320,33,273,45,153,82"/>
+<area shape="rect" id="Node000003" href="$d1/d5c/pdf__utils_8h.html#ab2771327d46765d94e49f3acf8d0d539" title="draw a line, line width needs to be set before" alt="" coords="341,55,423,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,80,328,70,328,75,224,85"/>
+<area shape="rect" id="Node000004" href="$d5/d60/utils_8h.html#a586071aa49d37b6beb5834b949798af2" title="converts various datatypes to string using ostringstream" alt="" coords="353,104,411,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,100,339,110,338,115,224,105"/>
+<area shape="rect" id="Node000005" href="$d1/d5c/pdf__utils_8h.html#a89f23d21ae93c3b6bc0de036965dffed" title="write text on to the pdf at a given point when max height is not exceeded" alt="" coords="272,153,492,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="156,103,273,138,311,148,309,153,271,143,154,108"/>
+<area shape="rect" id="Node000006" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="540,128,703,153"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="492,152,526,148,527,153,493,157"/>
+<area shape="rect" id="Node000007" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="552,177,691,203"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="493,174,539,179,538,184,492,180"/>
+</map>

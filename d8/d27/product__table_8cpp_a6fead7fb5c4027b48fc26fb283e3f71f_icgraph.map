@@ -1,0 +1,7 @@
+<map id="_createProductRow" name="_createProductRow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="445,13,592,38"/>
+<area shape="rect" id="Node000002" href="$d5/d0b/classproduct__table.html#adf1b09a9c7c79633006a53f5000f7cd6" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="188,5,397,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="431,28,397,28,397,23,431,23"/>
+<area shape="rect" id="Node000003" href="$d0/d60/classInvoice.html#a48f0228b01b24ea6c4db18f700e36015" title="generate a PDF invoice and save it to the users downloads folder as the invoice_number...." alt="" coords="5,13,140,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,28,140,28,140,23,174,23"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,104,84,129"/>
+<area shape="rect" id="Node000001" href="$d3/da4/classdateInputWidget.html" title="a Widget containing a label and a datepicker below" alt="" coords="148,5,279,31"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="65,92,95,65,131,40,157,28,159,33,133,44,98,69,69,96"/>
+<area shape="rect" id="Node000002" href="$d5/ddc/classproductWidget.html" title="the respective widget for entering product data" alt="" coords="155,55,272,80"/>
+<area shape="poly" id="edge3_Node000000_Node000002" title=" " alt="" coords="96,99,168,78,170,83,98,104"/>
+<area shape="rect" id="Node000003" href="$d0/d49/classrepresentativeWidget.html" title="the respective widget for entering representative data" alt="" coords="132,104,295,129"/>
+<area shape="poly" id="edge4_Node000000_Node000003" title=" " alt="" coords="98,114,132,114,132,119,98,119"/>
+<area shape="rect" id="Node000004" href="$d6/d52/classspinBoxInputWidget.html" title="a Widget containing a label and a spinbox (int input) below" alt="" coords="137,153,290,179"/>
+<area shape="poly" id="edge5_Node000000_Node000004" title=" " alt="" coords="98,129,170,151,168,156,96,134"/>
+<area shape="rect" id="Node000005" href="$d2/da6/classtextInputWidget.html" title="a Widget containing a label and a text input below" alt="" coords="150,203,277,228"/>
+<area shape="poly" id="edge6_Node000000_Node000005" title=" " alt="" coords="70,138,99,164,133,188,162,200,160,205,131,192,95,168,66,142"/>
+</map>

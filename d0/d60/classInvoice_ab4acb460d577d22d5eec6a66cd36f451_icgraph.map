@@ -1,0 +1,8 @@
+<map id="Invoice::_generateFooter" name="Invoice::_generateFooter">
+<area shape="rect" id="Node000001" title="prints the footer on the current pdf page, excluding the page number" alt="" coords="439,31,621,56"/>
+<area shape="rect" id="Node000002" href="$d0/d60/classInvoice.html#ae366ae46961f362bc7ec30285ab90a67" title="create a new page and add to pages list" alt="" coords="188,5,391,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="424,35,391,31,391,26,425,30"/>
+<area shape="rect" id="Node000003" href="$d0/d60/classInvoice.html#a48f0228b01b24ea6c4db18f700e36015" title="generate a PDF invoice and save it to the users downloads folder as the invoice_number...." alt="" coords="5,31,140,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="425,46,140,46,140,41,425,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="175,34,141,38,140,33,174,29"/>
+</map>

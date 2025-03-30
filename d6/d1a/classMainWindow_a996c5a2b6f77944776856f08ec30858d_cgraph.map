@@ -1,0 +1,20 @@
+<map id="MainWindow::MainWindow" name="MainWindow::MainWindow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,99,203,125"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#a99a0369f7d7ac8af7bb45d9a89da781d" title="helper function to add a product widget to the productList widget" alt="" coords="251,70,483,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,98,239,94,240,100,203,104"/>
+<area shape="rect" id="Node000007" href="$d6/d1a/classMainWindow.html#af2e904de7dc4cc73780511ceb9acaf5e" title="helper function to generate the PDF invoice" alt="" coords="257,127,476,153"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="203,120,244,124,243,130,203,125"/>
+<area shape="rect" id="Node000003" href="$d6/d1a/classMainWindow.html#a15e61a8508e878fb41f15e0a52bdd9f5" title="helper function to remove a product widget from the productList widget" alt="" coords="539,5,751,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,67,534,45,535,51,430,73"/>
+<area shape="rect" id="Node000004" href="$d5/ddc/classproductWidget.html#a63260ea7f3df590fe9c36c9e6ac5fd1e" title=" " alt="" coords="531,70,760,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="483,80,517,80,517,85,483,85"/>
+<area shape="rect" id="Node000005" href="$d5/ddc/classproductWidget.html#a09a25507340e6cef7121dc4796df83e2" title=" " alt="" coords="808,45,1028,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="760,69,794,66,794,71,761,75"/>
+<area shape="rect" id="Node000006" href="$d5/ddc/classproductWidget.html#ada0eb5a2b09521fa42d4ef72daaabe18" title=" " alt="" coords="1076,70,1288,95"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1029,65,1062,69,1062,74,1028,71"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="1076,85,774,85,774,80,1076,80"/>
+<area shape="rect" id="Node000008" href="$d6/d1a/classMainWindow.html#a9a81a0104f71d755ece9d9e0faaad07b" title="function checking for missing required fields" alt="" coords="535,120,756,160"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="476,137,521,137,521,143,476,143"/>
+<area shape="rect" id="Node000009" href="$da/df1/classPDFException.html#a553ad842633a66e9568eb98642b1c0ef" title=" " alt="" coords="556,185,735,210"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="430,150,570,179,569,185,429,155"/>
+</map>

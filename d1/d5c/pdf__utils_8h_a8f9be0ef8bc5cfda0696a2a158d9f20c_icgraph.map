@@ -1,0 +1,25 @@
+<map id="changeFont" name="changeFont">
+<area shape="rect" id="Node000001" title="change the font and font size" alt="" coords="699,131,796,156"/>
+<area shape="rect" id="Node000002" href="$d8/d27/product__table_8cpp.html#a15a37a94b45b36a871ebb8ebf5f36159" title=" " alt="" coords="476,5,643,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="728,121,694,81,673,61,649,44,625,33,627,28,652,40,676,57,698,78,732,118"/>
+<area shape="rect" id="Node000004" href="$d0/d60/classInvoice.html#a48f0228b01b24ea6c4db18f700e36015" title="generate a PDF invoice and save it to the users downloads folder as the invoice_number...." alt="" coords="5,181,140,207"/>
+<area shape="poly" id="edge14_Node000001_Node000004" title=" " alt="" coords="685,143,589,142,465,143,327,151,188,167,117,184,116,179,188,162,326,145,465,138,589,136,685,138"/>
+<area shape="rect" id="Node000005" href="$d8/d27/product__table_8cpp.html#a6fead7fb5c4027b48fc26fb283e3f71f" title=" " alt="" coords="486,55,633,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="706,127,650,102,598,83,600,78,652,97,709,122"/>
+<area shape="rect" id="Node000006" href="$d0/d60/classInvoice.html#ab4acb460d577d22d5eec6a66cd36f451" title="prints the footer on the current pdf page, excluding the page number" alt="" coords="468,156,651,181"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="685,154,651,159,650,154,684,149"/>
+<area shape="rect" id="Node000008" href="$d0/d60/classInvoice.html#a29edd9e425464d3b97e00c6da3c83a7e" title="print page numbering on all pages" alt="" coords="188,256,420,281"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="715,165,652,195,585,216,517,234,393,259,392,253,516,229,584,211,650,190,712,160"/>
+<area shape="rect" id="Node000009" href="$d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" title="Draws the Product Table on to a given pdf page." alt="" coords="195,305,413,331"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="733,169,699,211,677,232,652,250,594,276,532,295,471,308,414,316,413,310,470,303,531,290,592,271,649,245,674,228,695,207,728,166"/>
+<area shape="rect" id="Node000003" href="$d5/d0b/classproduct__table.html#adf1b09a9c7c79633006a53f5000f7cd6" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="199,41,409,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="470,36,409,46,408,41,469,30"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="218,88,189,102,131,143,88,183,84,179,127,139,187,97,216,83"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="472,68,409,66,409,61,472,62"/>
+<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="454,177,140,193,140,188,454,171"/>
+<area shape="rect" id="Node000007" href="$d0/d60/classInvoice.html#ae366ae46961f362bc7ec30285ab90a67" title="create a new page and add to pages list" alt="" coords="203,207,405,232"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="481,187,369,209,368,204,480,182"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="189,209,140,204,140,199,189,204"/>
+<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="221,255,187,246,99,209,101,204,189,241,222,250"/>
+<area shape="poly" id="edge13_Node000009_Node000004" title=" " alt="" coords="203,303,187,296,154,276,125,252,83,209,86,205,128,248,157,272,189,292,205,298"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="MainWindow::checkForMissingFields" name="MainWindow::checkForMissingFields">
+<area shape="rect" id="Node000001" title="function checking for missing required fields" alt="" coords="517,5,739,45"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#af2e904de7dc4cc73780511ceb9acaf5e" title="helper function to generate the PDF invoice" alt="" coords="251,13,469,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="504,28,470,28,470,23,504,23"/>
+<area shape="rect" id="Node000003" href="$d6/d1a/classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="5,13,203,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,28,203,28,203,23,237,23"/>
+</map>

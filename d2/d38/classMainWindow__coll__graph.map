@@ -1,0 +1,16 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="Node000001" title="main application window" alt="" coords="231,679,498,1483"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,487,113,552"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,563,234,834,229,837,81,565"/>
+<area shape="rect" id="Node000003" href="$d0/d49/classrepresentativeWidget.html" title="the respective widget for entering representative data" alt="" coords="138,437,365,601"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,601,283,661,277,663,265,602"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="363,5,433,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="352,64,317,88,288,121,269,159,256,199,246,241,240,283,237,365,242,437,236,437,232,365,235,283,241,240,250,198,265,157,284,119,313,84,349,59"/>
+<area shape="rect" id="Node000005" href="$d2/da6/classtextInputWidget.html" title="a Widget containing a label and a text input below" alt="" coords="298,120,498,255"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="401,84,401,120,395,120,395,84"/>
+<area shape="rect" id="Node000006" href="$d3/da4/classdateInputWidget.html" title="a Widget containing a label and a datepicker below" alt="" coords="454,279,654,413"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="447,60,482,85,512,118,532,157,545,199,556,278,551,279,539,200,527,159,508,122,479,89,444,65"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="400,255,397,413,387,662,382,662,391,413,395,255"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="312,256,295,280,285,304,277,339,264,421,259,421,272,338,280,303,290,277,308,253"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="556,414,551,504,537,602,505,722,500,721,531,601,546,503,551,414"/>
+</map>

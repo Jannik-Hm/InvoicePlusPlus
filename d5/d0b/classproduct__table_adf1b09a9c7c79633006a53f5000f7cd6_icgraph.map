@@ -1,0 +1,5 @@
+<map id="product_table::createProductTable" name="product_table::createProductTable">
+<area shape="rect" id="Node000001" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="188,5,397,45"/>
+<area shape="rect" id="Node000002" href="$d0/d60/classInvoice.html#a48f0228b01b24ea6c4db18f700e36015" title="generate a PDF invoice and save it to the users downloads folder as the invoice_number...." alt="" coords="5,13,140,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,28,140,28,140,23,174,23"/>
+</map>

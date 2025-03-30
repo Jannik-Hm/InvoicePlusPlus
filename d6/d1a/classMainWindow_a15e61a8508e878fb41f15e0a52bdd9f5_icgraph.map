@@ -1,0 +1,7 @@
+<map id="MainWindow::removeProductWidget" name="MainWindow::removeProductWidget">
+<area shape="rect" id="Node000001" title="helper function to remove a product widget from the productList widget" alt="" coords="531,5,743,45"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#a99a0369f7d7ac8af7bb45d9a89da781d" title="helper function to add a product widget to the productList widget" alt="" coords="251,13,483,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="517,28,483,28,483,23,517,23"/>
+<area shape="rect" id="Node000003" href="$d6/d1a/classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="5,13,203,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,28,203,28,203,23,237,23"/>
+</map>

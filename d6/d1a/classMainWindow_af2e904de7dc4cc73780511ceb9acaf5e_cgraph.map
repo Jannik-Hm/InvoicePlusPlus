@@ -1,0 +1,7 @@
+<map id="MainWindow::generateInvoice" name="MainWindow::generateInvoice">
+<area shape="rect" id="Node000001" title="helper function to generate the PDF invoice" alt="" coords="5,42,224,67"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#a9a81a0104f71d755ece9d9e0faaad07b" title="function checking for missing required fields" alt="" coords="272,5,493,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,40,258,36,259,42,225,45"/>
+<area shape="rect" id="Node000003" href="$da/df1/classPDFException.html#a553ad842633a66e9568eb98642b1c0ef" title=" " alt="" coords="293,70,472,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,63,280,69,279,75,224,69"/>
+</map>

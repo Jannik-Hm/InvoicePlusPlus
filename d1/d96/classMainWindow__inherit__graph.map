@@ -1,0 +1,5 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="Node000001" title="main application window" alt="" coords="5,119,272,1171"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="85,5,193,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,85,141,119,136,119,136,85"/>
+</map>

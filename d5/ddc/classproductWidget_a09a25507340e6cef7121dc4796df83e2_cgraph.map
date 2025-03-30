@@ -1,0 +1,8 @@
+<map id="productWidget::productWidget" name="productWidget::productWidget">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,225,56"/>
+<area shape="rect" id="Node000002" href="$d5/ddc/classproductWidget.html#ada0eb5a2b09521fa42d4ef72daaabe18" title=" " alt="" coords="273,5,485,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,30,259,27,260,32,226,35"/>
+<area shape="rect" id="Node000003" href="$d5/ddc/classproductWidget.html#a63260ea7f3df590fe9c36c9e6ac5fd1e" title=" " alt="" coords="533,31,763,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="486,25,520,29,520,34,485,31"/>
+<area shape="poly" id="edge3_Node000003_Node000001" title=" " alt="" coords="533,46,239,46,239,41,533,41"/>
+</map>

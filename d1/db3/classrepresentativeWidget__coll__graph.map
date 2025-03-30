@@ -1,0 +1,8 @@
+<map id="representativeWidget" name="representativeWidget">
+<area shape="rect" id="Node000001" title="the respective widget for entering representative data" alt="" coords="5,376,232,540"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="78,5,149,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,84,120,376,115,376,111,84"/>
+<area shape="rect" id="Node000003" href="$d2/da6/classtextInputWidget.html" title="a Widget containing a label and a text input below" alt="" coords="135,120,335,255"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="150,80,182,118,178,121,146,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,256,162,362,158,360,204,254"/>
+</map>

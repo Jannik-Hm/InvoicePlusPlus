@@ -1,0 +1,25 @@
+<map id="product_table::createProductTable" name="product_table::createProductTable">
+<area shape="rect" id="Node000001" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="5,73,215,113"/>
+<area shape="rect" id="Node000002" href="$d8/d27/product__table_8cpp.html#a15a37a94b45b36a871ebb8ebf5f36159" title=" " alt="" coords="263,31,429,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,70,271,56,272,61,207,75"/>
+<area shape="rect" id="Node000007" href="$d8/d27/product__table_8cpp.html#a6fead7fb5c4027b48fc26fb283e3f71f" title=" " alt="" coords="273,80,419,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="215,90,259,90,259,95,215,95"/>
+<area shape="rect" id="Node000010" href="$d1/d5c/pdf__utils_8h.html#ab2771327d46765d94e49f3acf8d0d539" title="draw a line, line width needs to be set before" alt="" coords="305,129,387,155"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="207,110,293,128,292,133,206,115"/>
+<area shape="rect" id="Node000003" href="$d1/d5c/pdf__utils_8h.html#a8f9be0ef8bc5cfda0696a2a158d9f20c" title="change the font and font size" alt="" coords="539,5,636,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,32,525,22,526,27,430,37"/>
+<area shape="rect" id="Node000004" href="$d1/d5c/pdf__utils_8h.html#a718810ab35a6f1052271a2edb887936f" title="write text on to the pdf at a given point" alt="" coords="546,55,629,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="430,49,533,59,532,65,429,54"/>
+<area shape="rect" id="Node000005" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="745,55,908,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="629,65,732,65,732,70,629,70"/>
+<area shape="rect" id="Node000006" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="757,104,896,129"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="629,73,752,99,751,104,628,78"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="393,77,428,65,452,52,476,40,524,26,525,31,478,44,454,57,430,70,395,82"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="419,82,532,70,533,76,420,88"/>
+<area shape="rect" id="Node000008" href="$d5/d60/utils_8h.html#a586071aa49d37b6beb5834b949798af2" title="converts various datatypes to string using ostringstream" alt="" coords="558,153,617,179"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="394,103,430,116,454,128,478,139,545,157,544,162,476,145,452,133,428,120,392,108"/>
+<area shape="rect" id="Node000009" href="$d1/d5c/pdf__utils_8h.html#a89f23d21ae93c3b6bc0de036965dffed" title="write text on to the pdf at a given point when max height is not exceeded" alt="" coords="477,104,697,129"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="420,97,464,102,463,107,419,103"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="649,101,750,80,752,85,650,107"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="698,114,744,114,744,119,698,119"/>
+</map>

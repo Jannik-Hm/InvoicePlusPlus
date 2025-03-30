@@ -1,0 +1,8 @@
+<map id="productWidget::requestDeletion" name="productWidget::requestDeletion">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,235,56"/>
+<area shape="rect" id="Node000002" href="$d5/ddc/classproductWidget.html#a09a25507340e6cef7121dc4796df83e2" title=" " alt="" coords="283,5,503,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,30,269,27,269,32,235,35"/>
+<area shape="rect" id="Node000003" href="$d5/ddc/classproductWidget.html#ada0eb5a2b09521fa42d4ef72daaabe18" title=" " alt="" coords="551,31,763,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="503,26,537,29,536,34,503,31"/>
+<area shape="poly" id="edge3_Node000003_Node000001" title=" " alt="" coords="550,46,249,46,249,41,550,41"/>
+</map>

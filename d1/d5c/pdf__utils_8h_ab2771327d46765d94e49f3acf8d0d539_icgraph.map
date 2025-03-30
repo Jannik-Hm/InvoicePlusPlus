@@ -1,0 +1,16 @@
+<map id="drawLine" name="drawLine">
+<area shape="rect" id="Node000001" title="draw a line, line width needs to be set before" alt="" coords="712,113,793,139"/>
+<area shape="rect" id="Node000002" href="$d0/d60/classInvoice.html#ab4acb460d577d22d5eec6a66cd36f451" title="prints the footer on the current pdf page, excluding the page number" alt="" coords="463,56,646,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="698,113,598,84,600,79,700,108"/>
+<area shape="rect" id="Node000005" href="$d5/d0b/classproduct__table.html#adf1b09a9c7c79633006a53f5000f7cd6" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="188,106,397,146"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="699,129,397,129,397,123,699,123"/>
+<area shape="rect" id="Node000006" href="$d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" title="Draws the Product Table on to a given pdf page." alt="" coords="445,167,664,192"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="699,143,603,169,602,164,698,138"/>
+<area shape="rect" id="Node000003" href="$d0/d60/classInvoice.html#ae366ae46961f362bc7ec30285ab90a67" title="create a new page and add to pages list" alt="" coords="191,5,394,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="474,56,359,33,360,28,475,51"/>
+<area shape="rect" id="Node000004" href="$d0/d60/classInvoice.html#a48f0228b01b24ea6c4db18f700e36015" title="generate a PDF invoice and save it to the users downloads folder as the invoice_number...." alt="" coords="5,85,140,111"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="450,78,140,97,140,91,449,72"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="235,37,189,52,103,88,101,83,187,48,233,32"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="174,114,140,109,141,104,175,108"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="431,188,312,182,249,174,187,161,134,138,91,113,94,109,136,134,189,155,250,169,313,177,432,182"/>
+</map>

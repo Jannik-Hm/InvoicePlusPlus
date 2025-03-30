@@ -1,0 +1,13 @@
+<map id="Invoice::_generateFooter" name="Invoice::_generateFooter">
+<area shape="rect" id="Node000001" title="prints the footer on the current pdf page, excluding the page number" alt="" coords="5,55,188,80"/>
+<area shape="rect" id="Node000002" href="$d1/d5c/pdf__utils_8h.html#a8f9be0ef8bc5cfda0696a2a158d9f20c" title="change the font and font size" alt="" coords="236,5,333,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,52,222,32,223,37,146,57"/>
+<area shape="rect" id="Node000003" href="$d1/d5c/pdf__utils_8h.html#ab2771327d46765d94e49f3acf8d0d539" title="draw a line, line width needs to be set before" alt="" coords="244,55,325,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,65,230,65,230,70,188,70"/>
+<area shape="rect" id="Node000004" href="$d1/d5c/pdf__utils_8h.html#a718810ab35a6f1052271a2edb887936f" title="write text on to the pdf at a given point" alt="" coords="243,104,326,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,77,231,100,230,105,145,83"/>
+<area shape="rect" id="Node000005" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="381,79,544,104"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="326,108,367,102,368,107,327,113"/>
+<area shape="rect" id="Node000006" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="393,128,532,153"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="327,120,380,127,379,132,326,125"/>
+</map>

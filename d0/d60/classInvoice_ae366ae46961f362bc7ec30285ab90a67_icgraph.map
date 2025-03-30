@@ -1,0 +1,5 @@
+<map id="Invoice::_generateNewPage" name="Invoice::_generateNewPage">
+<area shape="rect" id="Node000001" title="create a new page and add to pages list" alt="" coords="188,5,391,31"/>
+<area shape="rect" id="Node000002" href="$d0/d60/classInvoice.html#a48f0228b01b24ea6c4db18f700e36015" title="generate a PDF invoice and save it to the users downloads folder as the invoice_number...." alt="" coords="5,5,140,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,21,140,21,140,15,174,15"/>
+</map>

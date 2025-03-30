@@ -1,0 +1,7 @@
+<map id="writeTextIfNotLinesExceeded" name="writeTextIfNotLinesExceeded">
+<area shape="rect" id="Node000001" title="write text on to the pdf at a given point when max lines is not exceeded" alt="" coords="5,31,216,56"/>
+<area shape="rect" id="Node000002" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="264,5,427,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,29,250,26,251,31,216,35"/>
+<area shape="rect" id="Node000003" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="276,55,415,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,51,263,56,262,62,216,57"/>
+</map>

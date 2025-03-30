@@ -1,0 +1,21 @@
+<map id="ui/customWidgets/representativeWidget/representativeWidget.cpp" name="ui/customWidgets/representativeWidget/representativeWidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="357,5,597,45"/>
+<area shape="rect" id="Node000002" href="$d1/db6/representativeWidget_8h.html" title=" " alt="" coords="183,93,357,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="428,48,314,91,312,86,426,43"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="381,93,572,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="479,46,479,79,474,79,474,46"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="596,93,736,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="523,43,626,85,624,90,521,48"/>
+<area shape="rect" id="Node000003" href="$d3/df2/textInputWidget_8h.html" title=" " alt="" coords="182,167,358,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="273,119,273,153,267,153,267,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,255,84,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="217,209,91,253,90,248,215,204"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="108,255,192,280"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="242,209,181,249,178,245,239,205"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="217,255,323,280"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="273,207,273,241,267,241,267,207"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="348,255,459,280"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="303,204,373,245,371,250,301,209"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="483,255,550,280"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="330,204,471,249,469,254,328,209"/>
+</map>

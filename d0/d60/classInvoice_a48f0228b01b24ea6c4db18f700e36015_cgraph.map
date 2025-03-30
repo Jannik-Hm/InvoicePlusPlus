@@ -1,0 +1,48 @@
+<map id="Invoice::generate" name="Invoice::generate">
+<area shape="rect" id="Node000001" title="generate a PDF invoice and save it to the users downloads folder as the invoice_number...." alt="" coords="5,153,140,179"/>
+<area shape="rect" id="Node000002" href="$d0/d60/classInvoice.html#ab4acb460d577d22d5eec6a66cd36f451" title="prints the footer on the current pdf page, excluding the page number" alt="" coords="470,103,653,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,151,128,117,157,100,187,87,245,75,291,74,398,87,481,98,480,103,397,93,291,80,246,80,189,92,159,105,131,121,89,155"/>
+<area shape="rect" id="Node000003" href="$d1/d5c/pdf__utils_8h.html#a8f9be0ef8bc5cfda0696a2a158d9f20c" title="change the font and font size" alt="" coords="787,155,884,180"/>
+<area shape="poly" id="edge13_Node000001_Node000003" title=" " alt="" coords="140,163,773,164,773,170,140,169"/>
+<area shape="rect" id="Node000005" href="$d1/d5c/pdf__utils_8h.html#a718810ab35a6f1052271a2edb887936f" title="write text on to the pdf at a given point" alt="" coords="794,253,877,279"/>
+<area shape="poly" id="edge31_Node000001_Node000005" title=" " alt="" coords="82,178,97,206,120,243,151,279,189,309,256,342,316,365,371,377,424,381,479,378,537,369,677,338,711,328,745,314,802,283,804,288,747,318,713,333,678,343,538,374,480,383,424,386,370,382,314,370,254,347,187,313,147,283,116,246,92,209,77,180"/>
+<area shape="rect" id="Node000008" href="$d0/d60/classInvoice.html#ae366ae46961f362bc7ec30285ab90a67" title="create a new page and add to pages list" alt="" coords="191,103,394,128"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="128,150,223,128,224,134,129,156"/>
+<area shape="rect" id="Node000009" href="$d0/d60/classInvoice.html#a29edd9e425464d3b97e00c6da3c83a7e" title="print page numbering on all pages" alt="" coords="445,303,677,328"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="88,177,130,215,158,236,189,253,249,274,311,290,432,308,431,313,310,296,247,280,187,258,155,240,127,220,84,181"/>
+<area shape="rect" id="Node000011" href="$d5/d0b/classproduct__table.html#adf1b09a9c7c79633006a53f5000f7cd6" title="Function to automatically draw the Product table on to a given invoice page." alt="" coords="188,203,397,243"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="123,176,203,197,202,202,122,181"/>
+<area shape="rect" id="Node000015" href="$d5/d0b/classproduct__table.html#a7c305272f377548eb4f3d1a4f403ef59" title="Draws the Product Table on to a given pdf page." alt="" coords="452,53,671,79"/>
+<area shape="poly" id="edge26_Node000001_Node000015" title=" " alt="" coords="81,151,123,105,153,80,187,62,225,50,265,42,346,36,423,40,489,48,488,53,423,45,346,41,266,47,227,55,189,67,156,85,126,109,85,155"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="630,125,774,153,773,158,629,131"/>
+<area shape="rect" id="Node000004" href="$d1/d5c/pdf__utils_8h.html#ab2771327d46765d94e49f3acf8d0d539" title="draw a line, line width needs to be set before" alt="" coords="795,53,876,79"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="632,100,780,73,781,78,633,105"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="586,126,630,153,679,189,702,216,712,227,727,238,753,250,781,257,780,262,751,255,724,243,708,231,698,219,676,193,627,158,583,130"/>
+<area shape="rect" id="Node000006" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="993,131,1156,156"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="876,259,910,252,944,238,959,227,968,216,977,203,992,189,1035,160,1038,165,995,193,981,207,972,219,963,231,947,243,912,257,877,265"/>
+<area shape="rect" id="Node000007" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="1005,204,1144,229"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="876,255,999,229,1000,235,877,260"/>
+<area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="394,113,456,113,456,118,394,118"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="657,300,676,289,687,278,693,266,699,241,704,215,712,201,724,189,747,176,772,168,774,173,749,181,727,193,716,205,709,216,704,242,698,268,691,281,679,293,660,305"/>
+<area shape="poly" id="edge12_Node000009_Node000005" title=" " alt="" coords="632,300,780,273,781,278,633,305"/>
+<area shape="rect" id="Node000010" href="$d5/d60/utils_8h.html#a586071aa49d37b6beb5834b949798af2" title="converts various datatypes to string using ostringstream" alt="" coords="806,204,865,229"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="650,300,676,289,691,277,699,264,708,251,724,238,757,225,791,217,792,223,759,230,727,243,712,255,704,267,694,281,679,293,652,305"/>
+<area shape="poly" id="edge25_Node000011_Node000004" title=" " alt="" coords="324,201,360,173,395,138,409,110,415,85,422,60,431,49,444,38,487,18,534,6,583,3,631,5,721,23,792,46,791,51,720,28,631,11,583,8,535,12,489,23,447,43,435,52,427,63,420,86,414,112,399,141,364,177,327,205"/>
+<area shape="rect" id="Node000012" href="$d8/d27/product__table_8cpp.html#a15a37a94b45b36a871ebb8ebf5f36159" title=" " alt="" coords="478,253,645,279"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="398,237,468,248,467,254,397,242"/>
+<area shape="rect" id="Node000013" href="$d8/d27/product__table_8cpp.html#a6fead7fb5c4027b48fc26fb283e3f71f" title=" " alt="" coords="488,204,635,229"/>
+<area shape="poly" id="edge18_Node000011_Node000013" title=" " alt="" coords="398,218,475,216,475,221,398,223"/>
+<area shape="poly" id="edge16_Node000012_Node000003" title=" " alt="" coords="644,251,676,238,690,227,699,214,708,201,724,189,748,178,772,172,774,177,749,184,727,193,712,205,704,217,694,230,679,243,646,256"/>
+<area shape="poly" id="edge17_Node000012_Node000005" title=" " alt="" coords="645,263,780,263,780,269,645,269"/>
+<area shape="poly" id="edge19_Node000013_Node000003" title=" " alt="" coords="632,201,773,176,773,181,633,206"/>
+<area shape="poly" id="edge21_Node000013_Node000005" title=" " alt="" coords="633,227,781,253,780,259,632,232"/>
+<area shape="poly" id="edge20_Node000013_Node000010" title=" " alt="" coords="635,214,792,214,792,219,635,219"/>
+<area shape="rect" id="Node000014" href="$d1/d5c/pdf__utils_8h.html#a89f23d21ae93c3b6bc0de036965dffed" title="write text on to the pdf at a given point when max height is not exceeded" alt="" coords="725,105,945,131"/>
+<area shape="poly" id="edge22_Node000013_Node000014" title=" " alt="" coords="585,201,647,171,724,139,751,131,753,137,726,144,649,176,587,206"/>
+<area shape="poly" id="edge23_Node000014_Node000006" title=" " alt="" coords="946,127,980,131,979,136,945,132"/>
+<area shape="poly" id="edge24_Node000014_Node000007" title=" " alt="" coords="910,128,946,139,990,162,1043,194,1040,199,988,167,944,144,909,133"/>
+<area shape="poly" id="edge27_Node000015_Node000003" title=" " alt="" coords="653,76,679,88,695,101,704,114,712,127,727,140,749,150,774,157,772,162,748,155,724,144,708,131,699,117,691,104,676,92,651,81"/>
+<area shape="poly" id="edge28_Node000015_Node000004" title=" " alt="" coords="671,63,780,63,780,69,671,69"/>
+<area shape="poly" id="edge29_Node000015_Node000010" title=" " alt="" coords="660,76,679,88,691,100,698,113,704,140,709,166,716,178,727,189,758,205,793,213,791,218,757,210,724,193,712,181,704,167,699,141,693,115,687,103,676,92,657,81"/>
+<area shape="poly" id="edge30_Node000015_Node000014" title=" " alt="" coords="630,76,755,100,754,105,629,81"/>
+</map>

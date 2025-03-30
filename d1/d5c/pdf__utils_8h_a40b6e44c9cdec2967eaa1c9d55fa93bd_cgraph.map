@@ -1,0 +1,7 @@
+<map id="writeText" name="writeText">
+<area shape="rect" id="Node000001" title="write text on to the pdf at a given point" alt="" coords="5,31,88,56"/>
+<area shape="rect" id="Node000002" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="136,5,299,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,35,122,29,123,35,89,40"/>
+<area shape="rect" id="Node000003" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="148,55,287,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="89,46,135,53,134,58,88,52"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="productWidget" name="productWidget">
+<area shape="rect" id="Node000001" title="the respective widget for entering product data" alt="" coords="17,332,252,507"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="99,5,170,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,63,53,87,37,103,25,121,11,156,9,186,14,216,25,254,42,293,64,331,59,333,37,296,20,256,9,218,3,186,6,155,20,119,33,100,49,83,86,58"/>
+<area shape="rect" id="Node000003" href="$d2/da6/classtextInputWidget.html" title="a Widget containing a label and a text input below" alt="" coords="35,120,235,255"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="137,84,137,120,132,120,132,84"/>
+<area shape="rect" id="Node000004" href="$d6/d52/classspinBoxInputWidget.html" title="a Widget containing a label and a spinbox (int input) below" alt="" coords="259,120,466,255"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="183,67,261,118,259,122,180,72"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,255,137,315,132,315,132,255"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="299,257,234,322,230,318,295,253"/>
+</map>

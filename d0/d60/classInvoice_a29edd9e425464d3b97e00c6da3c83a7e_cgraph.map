@@ -1,0 +1,13 @@
+<map id="Invoice::_generatePageNumbers" name="Invoice::_generatePageNumbers">
+<area shape="rect" id="Node000001" title="print page numbering on all pages" alt="" coords="5,55,237,80"/>
+<area shape="rect" id="Node000002" href="$d1/d5c/pdf__utils_8h.html#a8f9be0ef8bc5cfda0696a2a158d9f20c" title="change the font and font size" alt="" coords="285,5,383,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,52,271,30,272,35,177,57"/>
+<area shape="rect" id="Node000003" href="$d5/d60/utils_8h.html#a586071aa49d37b6beb5834b949798af2" title="converts various datatypes to string using ostringstream" alt="" coords="305,55,363,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,65,291,65,291,70,237,70"/>
+<area shape="rect" id="Node000004" href="$d1/d5c/pdf__utils_8h.html#a718810ab35a6f1052271a2edb887936f" title="write text on to the pdf at a given point" alt="" coords="293,104,375,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,77,279,101,278,107,176,83"/>
+<area shape="rect" id="Node000005" href="$d1/d5c/pdf__utils_8h.html#a03775da971402fe5e7cf8dbe201e3888" title="calculates the height of a given text on the pdf" alt="" coords="431,79,593,104"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="375,108,417,102,417,107,376,113"/>
+<area shape="rect" id="Node000006" href="$d5/d60/utils_8h.html#ab750ae7075d3bd96b4e6bf46e08998fe" title="converts a UTF8 string to ISO8859&#45;1 / ANSI using iconv" alt="" coords="443,128,581,153"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="376,120,429,127,429,132,375,125"/>
+</map>

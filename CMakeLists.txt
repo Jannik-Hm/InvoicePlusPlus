@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(Invoice2Go LANGUAGES CXX)
+project(Invoice++ LANGUAGES CXX)
 
 find_package(Qt6 6.8.2 REQUIRED COMPONENTS Core Widgets)
 find_package(Iconv REQUIRED)
@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 23)
 
 qt_standard_project_setup()
 
-qt_add_executable(Invoice2Go
+qt_add_executable(Invoice++
     WIN32 MACOSX_BUNDLE
     main.cpp
         ui/mainwindow.cpp
@@ -37,7 +37,7 @@ qt_add_executable(Invoice2Go
         pdf/pdf_exception.h
 )
 
-target_link_libraries(Invoice2Go
+target_link_libraries(Invoice++
     PRIVATE
         Qt::Core
         Qt::Widgets
@@ -48,14 +48,14 @@ target_link_libraries(Invoice2Go
 
 include(GNUInstallDirs)
 
-install(TARGETS Invoice2Go
+install(TARGETS Invoice++
     BUNDLE  DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
 qt_generate_deploy_app_script(
-    TARGET Invoice2Go
+    TARGET Invoice++
     OUTPUT_SCRIPT deploy_script
     NO_UNSUPPORTED_PLATFORM_ERROR
 )

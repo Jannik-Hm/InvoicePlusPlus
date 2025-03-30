@@ -107,6 +107,7 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 Run on macOS</h1>
 <p>When a binary has been provided to you, you only need to install <code>Qt</code> using <code>brew install qt</code>. <br  />
  The pdf lib is statically linked into the binary.</p>
+<p>Additionally if the binary was not signed, you need to run <code>xattr -d com.apple.quarantine Invoice++.app</code> in the directory where your binary is located to disable the quarantine attribute caused by downloading.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Develop and Build</h1>
 <dl class="section warning"><dt>Warning</dt><dd>The CMake file is designed for development on macOS. <br  />
@@ -132,7 +133,7 @@ License information</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Mar 30 2025 14:15:45 for Invoice++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Sun Mar 30 2025 16:49:26 for Invoice++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

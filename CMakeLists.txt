@@ -14,7 +14,6 @@ qt_add_executable(Invoice++
     main.cpp
         ui/mainwindow.cpp
         ui/mainwindow.h
-        mainwindow.ui
         ui/customWidgets/productWidget/productWidget.h
         ui/customWidgets/productWidget/productWidget.cpp
         ui/customWidgets/representativeWidget/representativeWidget.cpp
